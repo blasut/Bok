@@ -1,0 +1,103 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>Fakturor - Bok</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <!-- CSS concatenated and minified via ant build script-->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- end CSS-->
+
+  <script src="js/libs/modernizr-2.0.6.min.js"></script>
+</head>
+<body>
+
+  <div id="nav-container" class="invoice">
+
+    <div class="nav-header">
+      <a href="#" id="logo" title="Gå till bok.se">Bok</a>
+    </div>
+
+    <ul class="nav">
+      <li><a href="#" class="n-item n-dashboard"><span class="n-icon">¹</span> Överblick</a></li>
+      <li><a href="#" class="n-item n-payin"><span class="n-icon">o</span>Inbetalningar</a></li>
+      <li><a href="utbetalningar.html" class="n-item n-payout"><span class="n-icon">n</span>Utbetalningar</a></li>
+      <li><a href="fakturor.html" class="n-item n-invoice selected"><span class="n-icon">/</span>Fakturor</a></li>
+      <li><a href="#" class="n-item n-offer"><span class="n-icon">+</span>Offerter</a></li>
+      <li><a href="#" class="n-item n-clients"><span class="n-icon">U</span>Kunder</a></li>
+      <li><a href="#" class="n-item n-declaration"><span class="n-icon">Z</span>Deklaration</a></li>
+      <li><a href="#" class="n-item n-print"><span class="n-icon">a</span>Skriv ut</a></li>
+      <li><a href="#" class="n-item n-settings"><span class="n-icon">S</span>Inställningar</a></li>
+    </ul>
+
+    <div class="todo">
+
+    </div>
+
+    <div class="nav-footer">
+      <a href="#" class="nav-help">Hjälp</a>
+      <a href="#" class="nav-logout">Logga ut</a>
+    </div>
+
+  </div> <!--! end of .nav-container -->
+
+  <div id="content-wrapper">
+
+    <div class="outer">
+
+      <div class="outer-header">
+        <a href="#" class="o-h-button">Faktura inställningar</a>
+        <a href="#" class="o-h-button">Skapa faktura</a>
+
+        <form action="#">
+          <input type="text" class="o-h-search" placeholder="Sök bland fakturor" />
+          <span class="search-clear"></span>
+        </form>
+
+        <ul class="o-sort">
+          <li>Sortera efter:</li>
+          <li class="sort-status o-sort-active"><a href="#">Status</a></li>
+          <li class="sort-date"><a href="#">Datum</a></li>
+          <li class="sort-abc"><a href="#">ABC</a></li>
+        </ul>
+
+      </div>
+
+    </div> <!--! end of .outer -->
+
+    <div class="inner">
+      inner
+    </div> <!--! end of .inner -->
+
+  </div> <!--! end of .content-wrapper -->
+
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.2.min.js"><\/script>')</script>
+
+  <!-- scripts concatenated and minified via ant build script-->
+  <script defer src="js/plugins.js"></script>
+  <script defer src="js/script.js"></script>
+  <!-- end scripts-->
+
+  <script> // Google Analytics
+    //window._gaq = [['_setAccount','UAXXXXXXXX1'],['_trackPageview'],['_trackPageLoadTime']];
+    //Modernizr.load({
+    //  load: ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js'
+    //});
+  </script>
+
+
+  <!--[if lt IE 7 ]>
+    <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+    <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+  <![endif]-->
+
+</body>
+</html>
