@@ -63,17 +63,6 @@
 
   <div id="content-wrapper">
 
-    <div class="outer">
-
-
-    </div> <!--! end of .outer -->
-
-      <div class="inner">
-          <p>Add new</p>
-      </div>
-
-    </div> <!--! end of .inner -->
-
   </div> <!--! end of .content-wrapper -->
 
   <script id="payment-template" type="text/template">
@@ -82,10 +71,13 @@
       <span class="o-l-corner ver">Ver</span>
       <p class="o-l-left cost"><%= cost %></p>
       <p class="o-l-right date"><%= date %></p>
-    </a>
+    </button>
+    <button class="remove">Remove</button>
   </script>
 
-  <script type="text/template" id="outgoingpayments-template">
+  <script id="outgoingpayments-template" type="text/template">
+    <div class="outer"> 
+
       <div class="outer-header">
         <button class="o-h-button">Lägg till utbetalning</button>
 
@@ -103,10 +95,15 @@
 
       </div>
 
-      <div class="outer-list">
+      <div class="outer-list" style="margin-top:151px;">
         <ul class="o-l-list utbetalningar">
         </ul>
       </div><!-- end of .outer-list -->
+    </div><!-- end .outer -->
+
+    <div class="inner">
+        <p>Add new</p>
+    </div>
   </script>
 
   <script id="new-payment-template" type="text/template" >
@@ -141,6 +138,38 @@
   </div>
   </script>
 
+  <script id="edit-payment-template" type="text/template" >
+  <div class="edit">
+    <h2 class="inner-heading">Edit <%= title %></em></h2>
+    <p class="inner-desc"></p>
+    <strong class="inner-heading-right">Verifikationsnummer: <em>02</em></strong>
+    <form class="inner-form">
+
+      <div class="date-picker"></div>
+
+      <div class="f-large-desc">
+        <label for="payout-title">Titel:</label>
+        <input id="payout-title" type="text" value="<%= title %>" />
+      </div>
+      <div class="f-large-desc">
+        <label for="payout-date">Utbetalnings datum:</label>
+        <input id="payout-date" type="text" value="2011-12-16" />
+      </div>
+      <div class="f-short price">
+        <label for="payout-price">Belopp (ink moms):</label>
+        <input id="payout-price" type="text" value="200" />
+      </div>
+      <div class="f-radio vat">
+        <label for="#">Moms:</label>
+        <input id="25" type="radio" name="vat" checked /><label class="f-radio-input" for="vat-25">25%</label>
+        <input id="12" type="radio" name="vat" /><label class="f-radio-input" for="vat-12">12%</label>
+        <input id="6" type="radio" name="vat" /><label class="f-radio-input" for="vat-6">6%</label>
+
+        <input name="id" id="modelId" type="hidden" value="<%= id %>" />
+        <button id="edit-utbetalning">Edit</button>
+      </div>
+  </div>
+  </script>
   <!-- scripts concatenated and minified via ant build script-->
   <script defer src="js/plugins.js"></script>
   <script defer src="js/script.js"></script>

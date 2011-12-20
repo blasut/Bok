@@ -41,7 +41,8 @@ document.addEventListener('touchstart', function() {},false);
 function outerListHeight() {
    var outerHeight = $('.outer').height(),
        outerHeaderHeight = $('.outer-header').height();
-   $('.outer-list').height(outerHeight - outerHeaderHeight).css('margin-top', outerHeaderHeight);
+   $('.outer-list').css('margin-top', outerHeaderHeight);
+   //.height(outerHeight - outerHeaderHeight)
 }
 $(window).resize(function() { outerListHeight(); });
 
