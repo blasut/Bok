@@ -1,3 +1,3 @@
-require './my_app'
+require './app'
 run MyApp
 
