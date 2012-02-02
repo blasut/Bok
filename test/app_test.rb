@@ -1,9 +1,4 @@
-gem 'minitest'
-require_relative '../app'
-require 'minitest/unit'
-require 'minitest/pride'
-require 'rack/test'
-MiniTest::Unit.autorun
+require_relative './test_helper'
 
 class MyAppTest < MiniTest::Unit::TestCase
   include Rack::Test::Methods
