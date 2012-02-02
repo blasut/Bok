@@ -4,6 +4,7 @@ $(document).ready(function() {
      '' : 'dashboard',
      'utbetalningar': 'outgoingpayments',
      'fakturor': 'invoices',
+     'inbetalningar': 'ingoingpayments'
     },
 
     initialize: function() {
@@ -25,7 +26,19 @@ $(document).ready(function() {
     }, 
 
     invoices: function() {
+      console.log("Fakturor!");
+      this.container.empty().text("Invocies");
     },
+
+    ingoingpayments: function() {
+      console.log("ingoingpayments");
+      this.container.empty();
+      this.InGoingPaymentsView = new InGoingPaymentsView({
+        collection: window.InGoingPayments
+      });
+      this.container.append(this.InGoingPaymentsView.render().el);
+      window.InGoingPayments.fetch();
+    }
 
   });
 });

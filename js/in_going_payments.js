@@ -1,27 +1,27 @@
 (function($){
   $(document).ready(function() {
 
-  // Add out the outgoingpayments model
-  window.OutGoingPayment = Backbone.Model.extend({
+  // Add out the ingoingpayments model
+  window.InGoingPayment = Backbone.Model.extend({
   });
 
-  OutGoingPaymentsList = Backbone.Collection.extend({
-    model: OutGoingPayment,
-    localStorage: new Store("outgoingpayments"),
+  InGoingPaymentsList = Backbone.Collection.extend({
+    model: InGoingPayment,
+    localStorage: new Store("ingoingpayments"),
   });
 
-  window.OutGoingPayments = new OutGoingPaymentsList();
+  window.InGoingPayments = new InGoingPaymentsList();
 
   // For individual payments
-  window.OutGoingPaymentView = Backbone.View.extend({
-    className: "outgoingpayment o-l-item",
+  window.InGoingPaymentView = Backbone.View.extend({
+    className: "ingoingpayment o-l-item",
     tagName: "li",
     template: _.template($('#payment-template').html()),
-    editTemplate: _.template($('#edit-out-payment-template').html()),
+    editTemplate: _.template($('#edit-in-payment-template').html()),
     
     events : {
-      "click .outgoingpayment .o-l-link": "showEditForm",
-      "click .outgoingpayment .remove": "destroy",
+      "click .ingoingpayment .o-l-link": "showEditForm",
+      "click .ingoingpayment .remove": "destroy",
     },
 
     initialize: function() {
@@ -45,19 +45,19 @@
     }
   });
 
- window.OutGoingPaymentsView = Backbone.View.extend({
+ window.InGoingPaymentsView = Backbone.View.extend({
 
     className: "",
-   template: _.template($('#outgoingpayments-template').html()),
+   template: _.template($('#ingoingpayments-template').html()),
 
     events : {
-      "click #new-utbetalning": "create",
-      "click .o-h-button.utbetalning": "showAddForm",
+      "click #new-inbetalning": "create",
+      "click .o-h-button.inbetalning": "showAddForm",
       "click .o-sort button": "sortModels",
-      "click #edit-utbetalning" : "editPayment"
+      "click #edit-inbetalning" : "editPayment"
     },
    
-   // TODO: event för att rendera "New outgoingpayment" ?
+   // TODO: event för att rendera "New ingoingpayment" ?
 
   initialize: function() {
     _.bindAll(this, 'render');
@@ -74,30 +74,31 @@
     var self = this;
 
     $(this.el).html(this.template({}));
-    collection.each(function (outgoingpayment) {
-      self.addOne(outgoingpayment);
+    collection.each(function (ingoingpayment) {
+      self.addOne(ingoingpayment);
     });
     return this;
   },
   
-  addOne: function(outgoingpayment) {
-    var view = new OutGoingPaymentView({
-      model: outgoingpayment,
+  addOne: function(ingoingpayment) {
+    var view = new InGoingPaymentView({
+      model: ingoingpayment,
       collection: this.collection
     });
-    $('.utbetalningar').append(view.render().el);
+    $('.inbetalningar').append(view.render().el);
   },
 
   create: function(e) {
-    e.preventDefault();               
+    e.preventDefault();        
+    console.log("Create");       
     
     data = this.getDataFromForm(this.form);
-    OutGoingPayments.create(data);
+    InGoingPayments.create(data);
    },
 
   showAddForm: function() {
     console.log(this, "Försök hitta namnet på klassen");
-    $('.inner').html($('#new-out-payment-template').html());
+    $('.inner').html($('#new-in-payment-template').html());
   },
 
   editPayment: function(e) {
@@ -105,9 +106,15 @@
     e.preventDefault();               
     var id = $(this.editForm + " #modelId").val();
     data = this.getDataFromForm(this.editForm);
+
+    console.log(data);
+    console.log(id);
+    console.log(typeof id);
     
-    var model = OutGoingPayments.get(id);
+    var model = InGoingPayments.get(id);
     model.set(data);
+
+    console.log(model, "model");
   },
 
 
