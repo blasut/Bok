@@ -1,3 +1,6 @@
-*.DS_Store
-*.swp
+*.sqlite3
+
 *.swo
+*.swp
+
+*.DS_Store

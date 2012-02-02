@@ -1,5 +1,0 @@
-TODO:
-
-- Sortera
-  ASC; DESC 
-  Text + datum + siffror
