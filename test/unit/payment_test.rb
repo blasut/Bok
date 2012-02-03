@@ -16,7 +16,8 @@ class PaymentTest < MiniTest::Unit::TestCase
       :title => "Title",
       :sum => 123,
       :vat => 25,
-      :date => Date.today
+      :date => Date.today,
+      :payment_type => 0
     }
   end
 
@@ -45,8 +46,9 @@ class PaymentTest < MiniTest::Unit::TestCase
     assert_equal false, p.saved?
   end
 
-  def test_that_payment_auto_increment_ver_id
-    skip
+  def test_that_payment_requires_payment_type
+    p = @user.payments.create(@attr.merge(:payment_type => nil))
+    assert_equal false, p.saved?
   end
 
 end

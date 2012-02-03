@@ -44,9 +44,9 @@ class Payment
   property :date, Date, :required => true
   property :sum, Integer, :required => true
   property :vat, Integer, :required => true
-  property :payout_type, Boolean
-  property :ver_id, Integer
-
+  property :payment_type, Boolean, :required => true
+  property :ver_id, Integer  
+  
   #Timespamps
   property :created_at, DateTime                           
   property :updated_at, DateTime  

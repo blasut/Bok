@@ -1,6 +1,6 @@
 require_relative './test_helper'
 
-class RoutingTest < MiniTest::Unit::TestCase
+class AppTest < MiniTest::Unit::TestCase
   include Rack::Test::Methods
 
   def app
@@ -11,13 +11,6 @@ class RoutingTest < MiniTest::Unit::TestCase
     @attr = {:email => "test@test.com",
                         :password => "hej123"}
     @user = User.first_or_create(@attr)
-
-    @payment_attr = {
-      :title => "Title",
-      :sum => 123,
-      :vat => 25,
-      :date => Date.today
-    }
   end
   
   def login
@@ -52,7 +45,8 @@ class RoutingTest < MiniTest::Unit::TestCase
       :title => "Title",
       :sum => 123,
       :vat => 25,
-      :date => Date.today
+      :date => Date.today,
+      :payment_type => 1
     }
     post '/payments', payment_attr
     assert_equal "true", last_response.body
