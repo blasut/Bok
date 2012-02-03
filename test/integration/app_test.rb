@@ -1,4 +1,4 @@
-require_relative './test_helper'
+require_relative '../test_helper'
 
 class RoutingTest < MiniTest::Unit::TestCase
   include Rack::Test::Methods
@@ -12,6 +12,12 @@ class RoutingTest < MiniTest::Unit::TestCase
                         :password => "hej123"}
     @user = User.first_or_create(@attr)
 
+    @attr_payment = {
+      :title => "Title",
+      :sum => 123,
+      :vat => 25,
+      :date => Date.today
+    }
   end
 
   def test_that_root_works
