@@ -115,4 +115,7 @@ function getData() {
 
 }
 
+window.addEventListener("popstate", function(e) {
+  console.log("popstate!");
+})
 
