@@ -20,6 +20,7 @@ class Payment
   include DataMapper::Resource
 
   property :id, Serial
+  property :title, String
   property :date, Date
   property :sum, Integer
   property :vat, Integer

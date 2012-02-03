@@ -9,7 +9,7 @@ class RoutingTest < MiniTest::Unit::TestCase
 
   def test_that_root_works
     get '/'
-    assert_equal 'Hello World', last_response.body
+    assert last_response.ok?
   end
 
 end
