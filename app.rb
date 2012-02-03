@@ -7,6 +7,10 @@ class MyApp < Sinatra::Base
     erb :layout 
   end
 
+  post '/payment' do
+    "Hej"
+  end
+
 
   # start the server if the ruby file is executed the ruby server directly
   run! if app_file == $0 

@@ -119,27 +119,28 @@
       <h3>Inkomst</h3>
       <section>
         <h4>Addera en inkomst</h4>
-        <form action="">
+        <form action="/payments" method="post">
           <div class="wrap-inp">
             <label for="inp-in-title">Titel</label>
-            <input type="text" id="inp-in-title">
+            <input type="text" id="inp-in-title" name="title">
             <a href="" class="info"></a>
           </div>
           <div class="wrap-inp">
             <label for="inp-in-sum">Summa</label>
-            <input type="text" id="inp-in-sum">
+            <input type="text" id="inp-in-sum" name="sum">
             <a href="" class="info"></a>
           </div>
           <div class="wrap-inp">
             <label for="inp-in-vat">Moms</label>
-            <input type="text" id="inp-in-vat">
+            <input type="text" id="inp-in-vat" name="vat">
             <a href="" class="info"></a>
           </div>
           <div class="wrap-inp">
             <label for="inp-in-date">Datum</label>
-            <input type="date" id="inp-in-date">
+            <input type="date" id="inp-in-date" date="date">
             <a href="" class="info"></a>
           </div>
+          <input name="payout_type" type="hidden" value="0" />
           <input type="submit" value="Addera" id="btn-add">
         </form>
       </section>
@@ -148,7 +149,7 @@
     <article class="content" id="view-out">
       <h3>Utgift</h3>
       <section>
-        <h4>Addera en inkomst</h4>
+        <h4>Addera en utgift</h4>
         <form action="">
           <div class="wrap-inp">
             <label for="inp-out-title">Titel</label>
@@ -178,7 +179,7 @@
     <article class="content" id="view-salary">
       <h3>Löneuttag</h3>
       <section>
-        <h4>Addera en inkomst</h4>
+        <h4>Lägg till ett löneuttag</h4>
         <form action="">
           <div class="wrap-inp">
             <label for="inp-out-title">Titel</label>
