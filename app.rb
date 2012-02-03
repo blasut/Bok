@@ -11,6 +11,17 @@ class MyApp < Sinatra::Base
     erb :layout 
   end
 
+  post '/payments' do
+    puts params
+    u = User.get(session[:current_user_id])
+    p = u.payments.create(params)
+    if p.saved?
+      puts "true"
+    else
+      puts "false"
+    end
+  end
+
   post '/login' do
     user = User.first(:email => params[:email],
                  :password => params[:password])
@@ -35,17 +46,6 @@ class MyApp < Sinatra::Base
       "true"
     else
       "false"
-    end
-  end
-
-  post '/payments' do
-    puts params
-    u = User.get(session[:current_user_id])
-    p = u.payments.create(params)
-    if p.saved?
-      puts "true"
-    else
-      puts "false"
     end
   end
 

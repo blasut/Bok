@@ -45,4 +45,8 @@ class PaymentTest < MiniTest::Unit::TestCase
     assert_equal false, p.saved?
   end
 
+  def test_that_payment_auto_increment_ver_id
+    skip
+  end
+
 end

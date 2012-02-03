@@ -36,4 +36,7 @@ class RoutingTest < MiniTest::Unit::TestCase
     assert User.count, old_user_count + 1
   end
 
+  def test_adding_a_payment
+    skip
+  end
 end
