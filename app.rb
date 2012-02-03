@@ -7,8 +7,7 @@ class MyApp < Sinatra::Base
 
   get '/' do
     @logged_in = session[:logged_in]
-    t = Time.now
-    @time = t.strftime("%Y/%m/%d") 
+    @time = Time.now.strftime("%Y/%m/%d") 
     erb :layout 
   end
 
