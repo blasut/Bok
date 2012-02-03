@@ -186,14 +186,19 @@ h1 {
   width: 960px;
   margin: 0 auto;
   position: relative;
+  display: none;
+  min-height: 610px;
 }
 
-#site {
+.active {
   display: block;
 }
 
-#app {
-  display: none;
+footer .transfer {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100px;
+  font-size: 12px;
 }
 
 

@@ -1,7 +1,58 @@
-/* Author: 
+/* Author:
 Christopher Schmölzer
 Anton Trollbäck
 */
+
+var view = {};
+// cache selectors
+view.site = $('#site');
+view.app = $('#app');
+
+$(function() {
+
+  console.log(view);
+
+  // Transfer between app and site
+  $('.transfer').click(function() {
+
+    if (view.app.is(':visible')) {
+      view.site.removeClass('active');
+      view.app.addClass('active');
+    } else {
+      view.app.removeClass('active');
+      view.site.addClass('active');
+    }
+  });
+
+
+
+  // Universal form actions
+  $('form .btn-add').click(function(e) {
+    e.preventDefault();
+
+    console.log("SEND DA FORM");
+
+    var form = $(this).parent();
+
+    console.log(form);
+
+    $.post(form.attr('action'), form.serialize(), function(data) {
+      console.log(data);
+
+      if(data == "true_login") {
+        getData();
+        $('#login').hide();
+        $('#btn-logout').removeClass('hidden');
+        $('#app').fadeIn().show();
+      } else if(data == "false_login") {
+        alert('Fel inlogg')
+      }
+    });
+  });
+
+});
+
+
 (function(window,undefined){
 
     // Prepare
@@ -18,13 +69,13 @@ Anton Trollbäck
         History.log(State.data, State.title, State.url);
     });
 
-    $('.link').click(function(e) {
-      e.preventDefault(); 
+    $('.link').not('.transfer').click(function(e) {
+      e.preventDefault();
       var contentId = $(this).attr('href');
       console.log(contentId);
 
       History.pushState({state:contentId}, "State " + contentId, "/" + contentId);
-      
+
       changeContent(contentId);
     });
 
@@ -35,32 +86,30 @@ Anton Trollbäck
       console.log('#view-' + id);
     }
 
+
+    $('.transfer').click(function(e) {
+      e.preventDefault();
+      var contentId = $(this).attr('href');
+      console.log(contentId);
+
+      History.pushState({state:contentId}, "State " + contentId, "/" + contentId);
+
+      console.log(view.app.hasClass('active'));
+
+      if (view.app.hasClass('active')) {
+      view.app.removeClass('active');
+      view.site.addClass('active');
+      } else {
+        view.site.removeClass('active');
+        view.app.addClass('active');
+      }
+    });
+
 })(window);
 
 
-$('form .btn-add').click(function(e) {
-  e.preventDefault();
-
-  console.log("SEND DA FORM");
-
-  var form = $(this).parent(); 
-
-  console.log(form);
-
-  $.post(form.attr('action'), form.serialize(), function(data) { 
-    console.log(data);
-
-    if(data == "true_login") {
-      getData();
-      $('#login').hide();
-      $('#btn-logout').removeClass('hidden');
-      $('#app').fadeIn().show();
-    } else if(data == "false_login") {
-      alert('Fel inlogg')
-    }
-  });
-});
-
-
 function getData() {
+
 }
+
+
