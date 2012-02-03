@@ -1,12 +1,29 @@
 # Bok
-Tjena
+Bokförings app: enkelt, snabbt, tillgängligt, modernt, snyggt
 
-
-
+### To-do efter hackaton:
+- Login och registrering
+ - checkbox: dubbelkolla lösenord
+ - kryptera lösenorden
+ - front-end validering
+ - Ta bort page refresh när man loggar ut
+ - Remember me
+- WF till sajtdelen
+- Implementera klart alla inputs
+ - Int. ska skrivas
+- WF till inputs
+- Hjälptext system
+ - Front-end
+ - Back-end
+- WF till bokföringen
+- Hämta in data
+ - Scrolla för att ladda in flera
+- Overall design, typografi, färgpalett
+- Demo konto med lorem ipsum data
+- Komma på ett namn
+- Mobilanpassning
 
 ## Data
-
-------
 
 ### Users
 - Email
@@ -24,7 +41,7 @@ Tjena
 - payment_type : 0 = in / 1 = ut
 - ver_id
 
-# Features
+## Features
 ----------
 **Query interface:**
 Keywords
