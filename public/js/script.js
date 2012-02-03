@@ -6,7 +6,8 @@ Anton Trollbäck
 var view = {};
 // cache selectors
 view.site = $('#site');
-view.app = $('#app');
+view.app = $('#app');;
+view.body = $('body');
 
 $(function() {
 
@@ -18,9 +19,11 @@ $(function() {
     if (view.app.is(':visible')) {
       view.site.removeClass('active');
       view.app.addClass('active');
+      view.body.attr('class', 'app');
     } else {
       view.app.removeClass('active');
       view.site.addClass('active');
+      view.body.attr('class', 'site');
     }
   });
 
@@ -74,15 +77,15 @@ $(function() {
       var contentId = $(this).attr('href');
       console.log(contentId);
 
-      History.pushState({state:contentId}, "State " + contentId, "/" + contentId);
+      History.pushState({state:contentId}, "State " + contentId, "/app/" + contentId);
 
       changeContent(contentId);
     });
 
     function changeContent(id) {
       console.log("Change content");
-      $('.content').hide();
-      $('#view-' + id).show();
+      $('.content').removeClass('active');
+      $('#view-' + id).addClass('active');
       console.log('#view-' + id);
     }
 

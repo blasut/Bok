@@ -18,7 +18,7 @@
 
   <script src="js/libs/modernizr-2.0.6.min.js"></script>
 </head>
-<body>
+<body class="site">
 
 
   <div class="container active" id="site">
@@ -31,7 +31,7 @@
     <!-- Login form: -->
     <% unless(@logged_in == true) %>
     <section id="logout">
-      <a href="logout" class="link" id="btn-logout">Logga ut</a>
+      <a href="" class="link" id="btn-logout">Logga ut</a>
     </section>
     <% else %>
     <section id="login">
@@ -60,13 +60,13 @@
         <li class="item"><a href="salary" class="link" id="btn-salary">Löne uttag</a></li>
         <li class="item"><a href="book" class="link" id="btn-book">Bokföring</a></li>
         <li class="item secondary"><a href="settings" class="link" id="btn-settings">Inställningar</a></li>
-        <li class="item secondary"><a href="/logout" class="link transfer" id="btn-logout">Logga ut</a></li>
+        <li class="item secondary"><a href="" class="link transfer" id="btn-logout">Logga ut</a></li>
       </ul>
     </nav>
 
     <!-- App views: -->
 
-    <article class="content" id="view-overview">
+    <article class="content active" id="view-overview">
       <section>
         <h3>Överblick</h3>
 
@@ -213,7 +213,8 @@
   <footer>
     <!-- About us: -->
     <a href="" id="info">i</a>
-    <a href="#" class="link transfer">Change main view</a>
+    <a href="app" class="link transfer" id="view-app">Go to app</a>
+    <a href="" class="link transfer" id="view-site">Go to site</a>
   </footer>
 
 
