@@ -11,6 +11,12 @@ class MyApp < Sinatra::Base
     erb :layout 
   end
 
+  get  %r{/app(/.*)?} do
+    @logged_in = session[:logged_in]
+    @time = Time.now.strftime("%Y/%m/%d") 
+    erb :layout 
+  end
+
   post '/payments' do
     u = User.get(session[:current_user_id])
     p = u.payments.create(params)
