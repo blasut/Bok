@@ -28,4 +28,11 @@ class RoutingTest < MiniTest::Unit::TestCase
     assert last_response.body.include?('false_login')
   end
 
+  def test_that_you_can_register_an_account
+    old_user_count = User.count
+    post '/register', @attr.merge(:email => "test@example.com")
+    assert last_response.body.include?('true')
+    assert User.count, old_user_count + 1
+  end
+
 end

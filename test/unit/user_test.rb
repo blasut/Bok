@@ -9,7 +9,7 @@ class UserTest < MiniTest::Unit::TestCase
 
   def setup
     @attributes = {
-      :email => "test@example.com", 
+      :email => "example@example.com", 
       :password => "hej123"
     }
   end
@@ -18,13 +18,9 @@ class UserTest < MiniTest::Unit::TestCase
     user = User.new 
   end
 
-  def test_that_user_can_register
+  def test_that_user_can_be_created
     user = User.create!(@attributes)
   end
 
- # def test_that_user_can_login
- #   user = User.create!(@attributes)
- #   User.get(@attributes) 
- # end
 
 end

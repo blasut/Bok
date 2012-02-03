@@ -31,7 +31,12 @@ class MyApp < Sinatra::Base
   end
 
   post '/register' do
-
+    # Check if the user exists, then add
+    if User.register params
+      "true"
+    else
+      "false"
+    end
   end
 
   post '/payments' do

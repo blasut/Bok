@@ -14,14 +14,25 @@ class User
   include DataMapper::Resource
 
   property :id, Serial
-  property :email, String, :unique_index => true
-  property :password, String
+  property :email, String, :required => true, :unique_index => true
+  property :password, String, :required => true
   
   #Timespamps
   property :created_at, DateTime                           
   property :updated_at, DateTime  
 
   has n, :payments
+
+
+  def self.register(params)
+    # Check if the user exists, if not then create
+    user = User.first(:email => params[:email],
+               :password => params[:password])
+    
+    if user.nil?
+      new_user = User.new(params) 
+    end
+  end
 
 end
 
