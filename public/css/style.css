@@ -67,6 +67,10 @@ td { vertical-align: top; }
 html {
   background: #f2f2f2;
 }
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+}
 
 
 
@@ -81,9 +85,47 @@ html {
   background: #222;
   line-height: 90px;
 }
+
 .column {
   width: 50%;
   float:left;
+}
+
+.event {
+  width: 100%;
+  overflow: hidden;
+  min-height: 40px;
+}
+.event:nth-child(2n+2) {
+  background: #ededed;
+}
+.data-sum {
+  float: left;
+  margin: 0 20px;
+  width: 100px;
+  border-right: 2px solid #ccc;
+  height: 40px;
+  line-height: 40px;
+}
+.data-sum:after {
+  content: ' kr';
+}
+.data-title {
+  float: left;
+  height: 40px;
+  line-height: 40px;
+}
+.data-nr {
+  float: right;
+  height: 40px;
+  line-height: 40px;
+  font-style: normal;
+  margin-right: 20px;
+  color: #999;
+  font-size: 16px;
+}
+.data-nr:before {
+  content: '#';
 }
 
 
@@ -186,7 +228,10 @@ h1 {
   top: 0; right: 0;
   background: #fff;
   padding: 78px 30px 30px;
-  display:none;
+  display: none;
+}
+#view-in {
+  display: block;
 }
 
 .content h3 {
@@ -202,10 +247,6 @@ h1 {
 
 
 /* ===== Overview ============= */
-
-#view-overview {
-  display: block;
-}
 
 #view-overview .number-item {
   float: left;
@@ -238,11 +279,15 @@ h1 {
 }
 
 
+/* ===== Overview Widget ======= */
 
+.widget {
+  clear: both;
+}
 
+.widget h4 {
 
-
-
+}
 
 
 
