@@ -22,9 +22,9 @@ class UserTest < MiniTest::Unit::TestCase
     user = User.create!(@attributes)
   end
 
-  def test_that_user_can_login
-    user = User.create!(@attributes)
-    User.get(@attributes) 
-  end
+ # def test_that_user_can_login
+ #   user = User.create!(@attributes)
+ #   User.get(@attributes) 
+ # end
 
 end

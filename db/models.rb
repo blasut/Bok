@@ -1,7 +1,14 @@
 require 'data_mapper'
 require 'dm-validations'
 
-DataMapper::setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/db/app.db")  
+if ENV['RACK_ENV'] == "test"
+  db_name = "test"
+else
+  db_name = "app"
+end
+
+
+DataMapper::setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/db/#{db_name}.db")  
 
 class User
   include DataMapper::Resource

@@ -16,7 +16,6 @@ class MyApp < Sinatra::Base
     user = User.first(:email => params[:email],
                  :password => params[:password])
 
-    puts user
     unless user.nil?
       session[:logged_in] = true
       session[:current_user_id] = user.id
