@@ -1,1 +1,143 @@
-här ska anton lägga sin kod
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>Bok</title>
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <!-- CSS concatenated and minified via ant build script-->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- end CSS-->
+
+  <script src="js/libs/modernizr-2.0.6.min.js"></script>
+</head>
+<body>
+
+
+
+  <header id="page-header">
+    <!-- Logo and description: -->
+    <strong id="logo"><a href="#">Bok</a></strong>
+    <h1>Det första lätta bokföringsappet tja lol</h1>
+
+    <!-- App heading navigation: -->
+    <nav id="header-nav">
+      <a href="#" class="link" id="btn-logout">Logga ut</a>
+      <a href="#settings" class="link" id="btn-settings">Inställningar</a>
+    </nav>
+  </header>
+
+
+
+  <div class="container" id="site">
+    <!-- Login form: -->
+    <section id="login">
+      <form action="">
+        <fealdset>logga in</h3>
+        <div class="wrap-inp">
+          <label for="inp-email">E-post</label>
+          <input type="email" id="inp-email">
+        </div>
+        <div class="wrap-inp">
+          <label for="inp-email">Lösenord</label>
+          <input type="password" id="inp-password">
+        </div>
+        <input type="submit" value="Bokför" id="btn-login">
+      </form>
+    </section>
+  </div>
+
+
+
+  <div class="container" id="app">
+    <!-- Main app navigation: -->
+    <nav>
+      <ul id="app-nav">
+        <li class="item"><a href="#in" class="link" id="btn-in">Inkomst</a></li>
+        <li class="item"><a href="#out" class="link" id="btn-out">Utgift</a></li>
+        <li class="item"><a href="#salary" class="link" id="btn-salary">Löne uttag</a></li>
+        <li class="item"><a href="#book" class="link" id="btn-book">Bokföring</a></li>
+      </ul>
+    </nav>
+
+    <!-- App views: -->
+
+    <section class="content" id="view-overview">
+      <h3>Överblick</h3>
+
+      <ul class="column">
+        <li class="number-item">
+          <strong class="important">Överskott:</strong>
+          <span class="number number-result" id="data-surplus">147 250</span>
+        </li>
+        <li class="number-item">
+          <strong>Inkomster:</strong>
+          <span class="number" id="data-in">187 250</span>
+        </li>
+        <li class="number-item">
+          <strong>Utgifter:</strong>
+          <span class="number" id="data-out">40 000</span>
+        </li>
+      </ul>
+
+      <div class="column">
+          <strong class="important">Moms överskott:</strong>
+          <span class="number-result" id="data-vat-result">61 580</span>
+      </div>
+
+    </section>
+
+    <section class="content" id="view-in">
+      <h3>Inkomst</h3>
+    </section>
+
+    <section class="content" id="view-out">
+      <h3>Utgift</h3>
+    </section>
+
+    <section class="content" id="view-salary">
+      <h3>Löneuttag</h3>
+    </section>
+
+    <section class="content" id="view-book">
+      <h3>Bokföring</h3>
+    </section>
+  </div>
+
+
+
+  <footer>
+    <!-- About us: -->
+    <a href="" id="info">i</a>
+  </footer>
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.2.min.js"><\/script>')</script>
+
+<!-- scripts concatenated and minified via ant build script-->
+<script defer src="js/plugins.js"></script>
+<script defer src="js/script.js"></script>
+<!-- end scripts-->
+
+<script> // Change UA-XXXXX-X to be your site's ID
+  /*
+  window._gaq = [['_setAccount','UAXXXXXXXX1'],['_trackPageview'],['_trackPageLoadTime']];
+  Modernizr.load({
+    load: ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js'
+  });
+</script>
+
+<!--[if lt IE 7 ]>
+  <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+  <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+<![endif]-->
+
+</body>
+</html>
