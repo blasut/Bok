@@ -28,19 +28,18 @@
 
     <!-- App heading navigation: -->
     <nav id="header-nav">
-    <a href="/logout" id="btn-logout" 
-      <% unless(@logged_in == true) %>
-        class="hidden" 
-      <% end %>
-    >Logga ut</a>
-      <a href="settings" class="link" id="btn-settings">Inställningar</a>
+
     </nav>
   </header>
 
 
-  <% unless(@logged_in == true) %>
   <div class="container" id="site">
     <!-- Login form: -->
+    <% unless(@logged_in == true) %>
+    <section id="logout">
+      <a href="/logout" class="action" id="btn-logout">Logga ut</a>
+    </section>
+    <% else %>
     <section id="login">
       <form action="/login" method="post">
         <fieldset>logga in</fieldset>
@@ -55,8 +54,8 @@
         <input type="submit" value="Logga in" id="btn-login" class="btn-add">
       </form>
     </section>
+    <% end %>
   </div>
-  <% end %>
 
   <div class="container" id="app">
     <!-- Main app navigation: -->
@@ -66,6 +65,8 @@
         <li class="item"><a href="out" class="link" id="btn-out">Utgift</a></li>
         <li class="item"><a href="salary" class="link" id="btn-salary">Löne uttag</a></li>
         <li class="item"><a href="book" class="link" id="btn-book">Bokföring</a></li>
+        <li class="item"><a href="settings" class="action" id="btn-settings">Inställningar</a></li>
+        <li class="item"><a href="/logout" class="link action" id="btn-logout">Logga ut</a></li>
       </ul>
     </nav>
 
