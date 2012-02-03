@@ -12,6 +12,16 @@ class RoutingTest < MiniTest::Unit::TestCase
                         :password => "hej123"}
     @user = User.first_or_create(@attr)
 
+    @payment_attr = {
+      :title => "Title",
+      :sum => 123,
+      :vat => 25,
+      :date => Date.today
+    }
+  end
+  
+  def login
+    post '/login', @attr
   end
 
   def test_that_root_works
@@ -20,7 +30,7 @@ class RoutingTest < MiniTest::Unit::TestCase
   end
 
   def test_that_login_works
-    post '/login', @attr
+    login
     assert last_response.body.include?('true_login')
   end
 
@@ -36,7 +46,16 @@ class RoutingTest < MiniTest::Unit::TestCase
     assert User.count, old_user_count + 1
   end
 
-  def test_adding_a_payment
-    skip
+  def test_adding_a_payment_with_proper_attributes
+    login
+    payment_attr = {
+      :title => "Title",
+      :sum => 123,
+      :vat => 25,
+      :date => Date.today
+    }
+    post '/payments', payment_attr
+    assert_equal "true", last_response.body
   end
+
 end

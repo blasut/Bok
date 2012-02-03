@@ -12,15 +12,16 @@ class MyApp < Sinatra::Base
   end
 
   post '/payments' do
-    puts params
     u = User.get(session[:current_user_id])
     p = u.payments.create(params)
+
     if p.saved?
-      puts "true"
+      "true"
     else
-      puts "false"
+      "false"
     end
   end
+
 
   post '/login' do
     user = User.first(:email => params[:email],
