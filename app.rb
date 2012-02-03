@@ -1,9 +1,10 @@
 require 'sinatra/base'
+require_relative 'db/models'
 
 class MyApp < Sinatra::Base
   # App code
   get '/' do
-    "Hello World"
+    erb :layout 
   end
 
 
