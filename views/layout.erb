@@ -23,7 +23,7 @@
 
   <header id="page-header">
     <!-- Logo and description: -->
-    <strong id="logo"><a href="#">Bok</a></strong>
+    <strong id="logo"><a href="overview" class="link">Bok</a></strong>
     <h1>Det första lätta bokföringsappet tja lol</h1>
 
     <!-- App heading navigation: -->
@@ -59,10 +59,10 @@
     <!-- Main app navigation: -->
     <nav>
       <ul id="app-nav">
-        <li class="item"><a href="#in" class="link" id="btn-in">Inkomst</a></li>
-        <li class="item"><a href="#out" class="link" id="btn-out">Utgift</a></li>
-        <li class="item"><a href="#salary" class="link" id="btn-salary">Löne uttag</a></li>
-        <li class="item"><a href="#book" class="link" id="btn-book">Bokföring</a></li>
+        <li class="item"><a href="in" class="link" id="btn-in">Inkomst</a></li>
+        <li class="item"><a href="out" class="link" id="btn-out">Utgift</a></li>
+        <li class="item"><a href="salary" class="link" id="btn-salary">Löne uttag</a></li>
+        <li class="item"><a href="book" class="link" id="btn-book">Bokföring</a></li>
       </ul>
     </nav>
 
@@ -118,8 +118,10 @@
   </footer>
 
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.2.min.js"><\/script>')</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
+<script src="/js/libs/jquery.history.min.js"></script>
+<script src="/js/libs/jquery.scrollto.min.js"></script>
 
 <!-- scripts concatenated and minified via ant build script-->
 <script defer src="js/plugins.js"></script>
@@ -132,6 +134,7 @@
   Modernizr.load({
     load: ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js'
   });
+  */
 </script>
 
 <!--[if lt IE 7 ]>
