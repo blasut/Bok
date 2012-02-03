@@ -1,31 +1,29 @@
-Users
-  email
-  password
+# Data
+------
 
-  företagsnamn
-  moms-default
+### Users
+- Email
+- Password
 
-
-Payments
-  namn
-  datum
-  summa
-  moms
-  payout_type
-  ver_id
+- Företagsnamn
+- Moms-default
 
 
+### Payments
+- namn
+- datum
+- summa
+- moms
+- payout_type
+- ver_id
 
-
-================================
-
-Features
-
-Query interface : Bevaka utbelatningar som innehåller frasen "penis"
-                  Visa senaste utbetalningar där summan är högre än 5000
-
-
+# Features
+----------
+**Query interface:**
+Bevaka utbelatningar som innehåller frasen "penis" Visa senaste utbetalningar där summan är högre än 5000
 "Kategorier" genom att skriva [KATEGORI]:[TITEL] i titelfältet
 
-Visa senast aktivitet (3 senaste sorterat på VER ID)
+
+**Senaste händelser:**
+3 senaste sorterat på VER ID.
 
