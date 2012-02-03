@@ -41,15 +41,12 @@ class MyApp < Sinatra::Base
 
   post '/payments' do
     puts params
-    unless params[:title].empty? || 
-            params[:sum].empty? ||
-            params[:vat].empty? ||
-            params[:date].empty?
-      puts "INTE TOM!" 
-      u = User.get(session[:current_user_id])
-      p = u.payments.create(params)
+    u = User.get(session[:current_user_id])
+    p = u.payments.create(params)
+    if p.saved?
+      puts "true"
     else
-      puts "TOM!"
+      puts "false"
     end
   end
 

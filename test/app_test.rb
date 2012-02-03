@@ -11,6 +11,13 @@ class RoutingTest < MiniTest::Unit::TestCase
     @attr = {:email => "test@test.com",
                         :password => "hej123"}
     @user = User.first_or_create(@attr)
+
+    @attr_payment = {
+      :title => "Title",
+      :sum => 123,
+      :vat => 25,
+      :date => Date.today
+    }
   end
 
   def test_that_root_works

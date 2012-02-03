@@ -40,10 +40,10 @@ class Payment
   include DataMapper::Resource
 
   property :id, Serial
-  property :title, String
-  property :date, Date
-  property :sum, Integer
-  property :vat, Integer
+  property :title, String, :required => true
+  property :date, Date, :required => true
+  property :sum, Integer, :required => true
+  property :vat, Integer, :required => true
   property :payout_type, Boolean
   property :ver_id, Integer
 
@@ -52,6 +52,8 @@ class Payment
   property :updated_at, DateTime  
 
   belongs_to :user
+
+   
 
 end
 
