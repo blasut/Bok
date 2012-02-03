@@ -14,11 +14,7 @@ class MyApp < Sinatra::Base
   post '/payments' do
     u = User.get(session[:current_user_id])
     p = u.payments.create(params)
-
-    p.errors.each do |e|
-      puts e
-    end
-
+     
     if p.saved?
       "true"
     else
