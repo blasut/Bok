@@ -1,9 +1,2 @@
-gem 'minitest'
-ENV['RACK_ENV'] = 'test'
-
+require_relative './test_helper_lite'
 require_relative '../app'
-require 'minitest/unit'
-require 'minitest/pride'
-require 'rack/test'
-MiniTest::Unit.autorun
-

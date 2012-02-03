@@ -13,3 +13,7 @@ Rake::TestTask.new do |t|
   Rake::Task[:db_reset].invoke
 end
 
+Rake::TestTask.new do |t|
+  t.name = :test_lib
+  t.pattern = "test/lib/**/*_test.rb"
+end
