@@ -1,5 +1,11 @@
-<<<<<<< HEAD
-# Data
+# Bok
+Tjena
+
+
+
+
+## Data
+
 ------
 
 ### Users
@@ -15,7 +21,7 @@
 - datum
 - summa
 - moms
-- payout_type
+- payment_type : 0 = in / 1 = ut
 - ver_id
 
 # Features
