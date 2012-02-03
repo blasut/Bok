@@ -28,32 +28,35 @@
 
     <!-- App heading navigation: -->
     <nav id="header-nav">
-      <a href="#" class="link" id="btn-logout">Logga ut</a>
+    <a href="/logout" id="btn-logout" 
+      <% unless(@logged_in == true) %>
+        class="hidden" 
+      <% end %>
+    >Logga ut</a>
       <a href="settings" class="link" id="btn-settings">Inställningar</a>
     </nav>
   </header>
 
 
-
+  <% unless(@logged_in == true) %>
   <div class="container" id="site">
     <!-- Login form: -->
     <section id="login">
-      <form action="">
-        <fealdset>logga in</h3>
+      <form action="/login" method="post">
+        <fieldset>logga in</fieldset>
         <div class="wrap-inp">
           <label for="inp-email">E-post</label>
-          <input type="email" id="inp-email">
+          <input type="email" id="inp-email" name="email" value="test@example.com">
         </div>
         <div class="wrap-inp">
           <label for="inp-email">Lösenord</label>
-          <input type="password" id="inp-password">
+          <input type="password" id="inp-password" name="password">
         </div>
-        <input type="submit" value="Bokför" id="btn-login">
+        <input type="submit" value="Logga in" id="btn-login" class="btn-add">
       </form>
     </section>
   </div>
-
-
+  <% end %>
 
   <div class="container" id="app">
     <!-- Main app navigation: -->
@@ -122,22 +125,22 @@
         <form action="/payments" method="post">
           <div class="wrap-inp">
             <label for="inp-in-title">Titel</label>
-            <input type="text" id="inp-in-title" name="title">
+            <input type="text" id="inp-in-title" name="title" placeholder="En bok">
             <a href="" class="info"></a>
           </div>
           <div class="wrap-inp">
             <label for="inp-in-sum">Summa</label>
-            <input type="text" id="inp-in-sum" name="sum">
+            <input type="text" id="inp-in-sum" name="sum" placeholder="123">
             <a href="" class="info"></a>
           </div>
           <div class="wrap-inp">
             <label for="inp-in-vat">Moms</label>
-            <input type="text" id="inp-in-vat" name="vat">
+            <input type="text" id="inp-in-vat" name="vat" placeholder="25">
             <a href="" class="info"></a>
           </div>
           <div class="wrap-inp">
             <label for="inp-in-date">Datum</label>
-            <input type="date" id="inp-in-date" date="date" name="date">
+            <input type="date" id="inp-in-date" date="date" name="date" placeholder="<%= @time %>">
             <a href="" class="info"></a>
           </div>
           <input name="payout_type" type="hidden" value="0" />

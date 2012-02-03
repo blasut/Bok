@@ -189,11 +189,11 @@ h1 {
 }
 
 #site {
-  display: none;
+  display: block;
 }
 
 #app {
-  display: block;
+  display: none;
 }
 
 

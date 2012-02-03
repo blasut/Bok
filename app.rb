@@ -3,12 +3,32 @@ require_relative 'db/models'
 
 class MyApp < Sinatra::Base
   # App code
+  enable :sessions
+
   get '/' do
+    @logged_in = session[:logged_in]
+    t = Time.now
+    @time = t.strftime("%Y/%m/%d") 
     erb :layout 
   end
 
   post '/login' do
+    user = User.first(:email => params[:email],
+                 :password => params[:password])
 
+    puts user
+    unless user.nil?
+      session[:logged_in] = true
+      session[:current_user_id] = user.id
+      "true_login"
+    else
+      "false_login"
+    end
+  end
+
+  get '/logout' do
+    session[:logged_in] = false
+    redirect '/'
   end
 
   post '/register' do
@@ -22,12 +42,8 @@ class MyApp < Sinatra::Base
             params[:vat].empty? ||
             params[:date].empty?
       puts "INTE TOM!" 
-      p = Payment.new
-      p.attributes = params
-
-      puts p.valid?
-
-      p.save
+      u = User.get(session[:current_user_id])
+      p = u.payments.create(params)
     else
       puts "TOM!"
     end

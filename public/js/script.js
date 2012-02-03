@@ -47,5 +47,20 @@ $('form .btn-add').click(function(e) {
 
   console.log(form);
 
-  $.post(form.attr('action'), form.serialize(), function(data) { console.log(data) });
+  $.post(form.attr('action'), form.serialize(), function(data) { 
+    console.log(data);
+
+    if(data == "true_login") {
+      getData();
+      $('#login').hide();
+      $('#btn-logout').removeClass('hidden');
+      $('#app').fadeIn().show();
+    } else if(data == "false_login") {
+      alert('Fel inlogg')
+    }
+  });
 });
+
+
+function getData() {
+}

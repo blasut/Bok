@@ -1,4 +1,5 @@
 require 'data_mapper'
+require 'dm-validations'
 
 DataMapper::setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/db/app.db")  
 
@@ -6,14 +7,15 @@ class User
   include DataMapper::Resource
 
   property :id, Serial
-  property :email, String
-  property :password, BCryptHash
+  property :email, String, :unique_index => true
+  property :password, String
   
   #Timespamps
   property :created_at, DateTime                           
   property :updated_at, DateTime  
 
   has n, :payments
+
 end
 
 class Payment
