@@ -36,3 +36,16 @@ Anton Trollbäck
     }
 
 })(window);
+
+
+$('form .btn-add').click(function(e) {
+  e.preventDefault();
+
+  console.log("SEND DA FORM");
+
+  var form = $(this).parent(); 
+
+  console.log(form);
+
+  $.post(form.attr('action'), form.serialize(), function(data) { console.log(data) });
+});
