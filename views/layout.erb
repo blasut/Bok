@@ -1,5 +1,4 @@
 <!doctype html>
-<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
 <!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
@@ -7,22 +6,18 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta http-equiv="Cache-Control" content="no-store" />
-
-  <title>Bok</title>
-
+  <title>Bok - Bokföringsapp</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
-
   <!-- CSS concatenated and minified via ant build script-->
   <link rel="stylesheet" href="/css/style.css">
   <link href="//get.pictos.cc/fonts/583/4" rel="stylesheet" type="text/css">
   <!-- end CSS-->
-
   <script src="js/libs/modernizr-2.0.6.min.js"></script>
 </head>
 <body class="site">
 
 
-  <div class="container active" id="site">
+  <div class="container active clearfix" id="site">
     <header id="page-header">
       <!-- Logo and description: -->
       <strong id="logo">Bok <sup>beta</sup></strong>
@@ -53,71 +48,49 @@
     </section>
   </div>
 
-  <div class="container" id="app">
-    <!-- Main app navigation: -->
+
+  <div class="container clearfix" id="app">
     <nav>
       <ul id="app-nav">
-        <li class="item"><a href="in" class="link" id="btn-in">Inkomst</a></li>
-        <li class="item"><a href="out" class="link" id="btn-out">Utgift</a></li>
-        <li class="item"><a href="salary" class="link" id="btn-salary">Löne uttag</a></li>
-        <li class="item"><a href="book" class="link" id="btn-book">Bokföring</a></li>
-        <li class="item secondary"><a href="settings" class="link" id="btn-settings">s</a></li>
-        <li class="item secondary"><a href="" class="link btn-logout">q</a></li>
+        <li class="item"><a href="in" class="link" id="btn-in" data-title="Addera inkomst">Inkomst</a></li>
+        <li class="item"><a href="out" class="link" id="btn-out" data-title="Addera utgift">Utgift</a></li>
+        <li class="item"><a href="salary" class="link" id="btn-salary" data-title="Addera löneuttag">Löneuttag</a></li>
+        <li class="item"><a href="book" class="link" id="btn-book" data-title="Bokföring">Bokföring</a></li>
+        <li class="subnav">
+          <strong id="bok">Bok</strong>
+          <a href="" class="link" id="btn-logout">q</a>
+          <a href="settings" class="link" id="btn-settings" data-title="Inställningar">s</a>
+          <a href="" class="link" id="btn-overview" data-title="Överblick">h</a>
+        </li>
       </ul>
     </nav>
 
-    <!-- App views: -->
-    <a href="" class="link" id="btn-overview">h</a>
-    <article class="content active" id="view-overview">
-      <section class="clearfix">
-        <h3>Överblick</h3>
+    <div id="main-content">
 
-        <ul class="column">
-          <li class="number-item">
-            <strong class="important">Överskott:</strong>
-            <span class="number number-result" id="data-surplus">147 250</span>
-          </li>
-          <li class="number-item">
-            <strong>Inkomster:</strong>
-            <span class="number" id="data-in">187 250</span>
-          </li>
-          <li class="number-item">
-            <strong>Utgifter:</strong>
-            <span class="number" id="data-out">40 000</span>
-          </li>
-        </ul>
+      <!-- Overview: -->
+      <article class="content active" id="view-overview">
+          <ul class="column">
+            <li class="number-item">
+              <strong class="important">Överskott:</strong>
+              <span class="number number-result" id="data-surplus">147 250</span>
+            </li>
+            <li class="number-item">
+              <strong>Inkomster:</strong>
+              <span class="number" id="data-in">187 250</span>
+            </li>
+            <li class="number-item">
+              <strong>Utgifter:</strong>
+              <span class="number" id="data-out">40 000</span>
+            </li>
+          </ul>
+          <div class="column">
+              <strong class="important">Moms överskott:</strong>
+              <span class="number-result" id="data-vat-result">61 580</span>
+          </div>
+      </article>
 
-        <div class="column">
-            <strong class="important">Moms överskott:</strong>
-            <span class="number-result" id="data-vat-result">61 580</span>
-        </div>
-      </section>
-
-      <section class="latest">
-        <h4>Senaste händelser</h4>
-        <ul class="events">
-          <li class="event">
-            <span class="data-sum">1000 </span>
-            <strong class="data-title">Bokköp: The Manual </strong>
-            <i class="data-nr">42</i>
-          </li>
-          <li class="event">
-            <span class="data-sum">10 000</span>
-            <strong class="data-title">Bokköp: The Manual </strong>
-            <i class="data-nr">41</i>
-          </li>
-          <li class="event">
-            <span class="data-sum">100</span>
-            <strong class="data-title">Bokköp: The Manual </strong>
-            <i class="data-nr">40</i>
-          </li>
-        </ul>
-      </section>
-    </article>
-
-    <article class="content" id="view-in">
-      <h3>Inkomst</h3>
-      <section>
+      <!-- Payin: -->
+      <article class="content" id="view-in">
         <form action="/payments" method="post">
           <div class="wrap-inp">
             <label for="inp-in-title">Titel</label>
@@ -142,33 +115,10 @@
           <input name="payout_type" type="hidden" value="0" />
           <input type="submit" value="Addera" class="btn-add">
         </form>
-      </section>
+      </article>
 
-      <section class="latest">
-        <h4>Senaste inkomsterna</h4>
-        <ul class="events">
-          <li class="event">
-            <span class="data-sum">1000 </span>
-            <strong class="data-title">Bokköp: The Manual </strong>
-            <i class="data-nr">42</i>
-          </li>
-          <li class="event">
-            <span class="data-sum">10 000</span>
-            <strong class="data-title">Bokköp: The Manual </strong>
-            <i class="data-nr">41</i>
-          </li>
-          <li class="event">
-            <span class="data-sum">100</span>
-            <strong class="data-title">Bokköp: The Manual </strong>
-            <i class="data-nr">40</i>
-          </li>
-        </ul>
-      </section>
-    </article>
-
-    <article class="content" id="view-out">
-      <h3>Utgift</h3>
-      <section>
+      <!-- Payout: -->
+      <article class="content" id="view-out">
         <form action="">
           <div class="wrap-inp">
             <label for="inp-out-title">Titel</label>
@@ -192,33 +142,10 @@
           </div>
           <input type="submit" value="Addera" class="btn-add">
         </form>
-      </section>
+      </article>
 
-      <section class="latest">
-        <h4>Senaste utgiftera</h4>
-        <ul class="events">
-          <li class="event">
-            <span class="data-sum">1000 </span>
-            <strong class="data-title">Bokköp: The Manual </strong>
-            <i class="data-nr">42</i>
-          </li>
-          <li class="event">
-            <span class="data-sum">10 000</span>
-            <strong class="data-title">Bokköp: The Manual </strong>
-            <i class="data-nr">41</i>
-          </li>
-          <li class="event">
-            <span class="data-sum">100</span>
-            <strong class="data-title">Bokköp: The Manual </strong>
-            <i class="data-nr">40</i>
-          </li>
-        </ul>
-      </section>
-    </article>
-
-    <article class="content" id="view-salary">
-      <h3>Löneuttag</h3>
-      <section>
+      <!-- Salary: -->
+      <article class="content" id="view-salary">
         <form action="">
           <div class="wrap-inp">
             <label for="inp-out-title">Titel</label>
@@ -237,10 +164,20 @@
           </div>
           <input type="submit" value="Addera" class="btn-add">
         </form>
-      </section>
+      </article>
+
+      <!-- Booking: -->
+      <article class="content" id="view-book">
+
+      </article>
+
+      <!-- Settings: -->
+      <article class="content" id="view-settings">
+
+      </article>
 
       <section class="latest">
-        <h4>Senaste löneuttag</h4>
+        <h4>Senaste händelser</h4>
         <ul class="events">
           <li class="event">
             <span class="data-sum">1000 </span>
@@ -259,45 +196,28 @@
           </li>
         </ul>
       </section>
-    </article>
-
-    <article class="content" id="view-book">
-      <h3>Bokföring</h3>
-    </article>
-
-    <article class="content" id="view-settings">
-      <h3>Inställningar</h3>
-    </article>
+    </div>
   </div>
 
 
+  <!-- View switcher for development: -->
   <a href="app" class="transfer" id="view-app">t</a>
   <a href="" class="transfer" id="view-site">t</a>
 
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
-<script src="/js/libs/jquery.history.min.js"></script>
-<script src="/js/libs/jquery.scrollto.min.js"></script>
-
-<!-- scripts concatenated and minified via ant build script-->
-<script defer src="/js/plugins.js"></script>
-<script defer src="/js/script.js"></script>
-<!-- end scripts-->
-
-<script> // Change UA-XXXXX-X to be your site's ID
-  /*
-  window._gaq = [['_setAccount','UAXXXXXXXX1'],['_trackPageview'],['_trackPageLoadTime']];
-  Modernizr.load({
-    load: ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js'
-  });
-  */
-</script>
-
-<!--[if lt IE 7 ]>
-  <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
-  <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
-<![endif]-->
-
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
+  <!-- scripts concatenated and minified via ant build script-->
+  <script defer src="/js/libs/jquery.history.min.js"></script>
+  <script defer src="/js/libs/jquery.scrollto.min.js"></script>
+  <script defer src="/js/plugins.js"></script>
+  <script defer src="/js/script.js"></script>
+  <!-- end scripts-->
+  <script> /*
+    window._gaq = [['_setAccount','UAXXXXXXXX1'],['_trackPageview'],['_trackPageLoadTime']];
+    Modernizr.load({
+      load: ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js'
+    }); */
+  </script>
 </body>
 </html>

@@ -100,13 +100,11 @@ body {
 
 /* ===== Pictos icon font ===== */
 
-.icon, #view-app, #view-site, #btn-settings, #app-nav .btn-logout, #btn-overview  {
+.icon, .transfer, .subnav .link  {
   font-family: 'Pictos Custom';
-  -webkit-font-smoothing: antialiased;
-}
-.icon {
   font-weight: normal !important;
   font-style: normal !important;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* ===== Form elements ===== */
@@ -205,44 +203,17 @@ h1 {
 
 /* ===== Basic app structure ===== */
 
-.content {
+#main-content {
   width: 580px;
-  min-height: 422px;
-  position: absolute;
-  top: 0; right: 0;
-  background: #fff;
-  padding: 78px 30px 30px;
-  display: none;
+  min-height: 433px;
+  padding: 25px 30px 30px;
+  float: right;
+  border-top: 12px solid #ffd015;
   border-radius: 2px;
+  background: #fff;
 }
-
-.content h3 {
-  display: block;
-  position: absolute;
-  top: 0; left: 0;
-  margin: 0;
-  padding: 15px;
-  background: #ccc;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-/* ===== App like text selection ===== */
-
-body.app, .transfer {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -o-user-select: none;
-  user-select: none;
-}
-
-.content *[id*="data-"], .content *[class*="data-"] {
-  -webkit-user-select: text;
-  -moz-user-select: text;
-  -ms-user-select: text;
-  -o-user-select: text;
-  user-select: text;
+.content {
+  display: none;
 }
 
 /* ===== Main app navigation ===== */
@@ -253,59 +224,60 @@ body.app, .transfer {
   width: 290px;
 }
 
-#app-nav .item {
-  margin-bottom: 20px;
-}
-
-#app-nav .link {
-  font-size: 25px;
-  padding-left: 30px;
-  width: auto;
+.item, .subnav {
+  position: relative;
   height: 90px;
-  display: block;
+  margin-bottom: 20px;
+  border-radius: 2px;
   background: #222;
   line-height: 90px;
-  border-radius: 2px;
 }
-
-/* ===== Settings / Logout icons ===== */
-
-#app-nav .secondary {
-  float: left;
-  width: 135px;
-  margin-bottom: 0;
+.link {
+  display: block;
+  padding-left: 77px;
+  font-size: 25px;
 }
-#app-nav .item:last-child {
-  float: right;
-}
-
-#app-nav .secondary .link {
-  font-size: 15px;
-  padding-left: 0;
-  text-align: center;
-  width: 100%;
-}
-
-#app-nav #btn-settings, #app-nav .secondary .btn-logout {
-  font-size: 60px;
-  line-height: 107px;
-}
-
-/* ===== Go to overview icon ===== */
-
-#btn-overview {
-  position: absolute;
-  top: 13px;
-  right: 13px;
-  z-index: 1;
-  font-size: 22px;
-  background: #222;
-  border-radius: 2px;
+.item .link:before {
+  content: '+';
   width: 30px;
   height: 30px;
+  display: block;
+  background: #fff;
+  position: absolute;
+  top: 30px;
+  left: 30px;
   text-align: center;
+  line-height: 1;
+  color: #222;
+  font-weight: bold;
+  border-radius: 2px;
+}
+
+/* ===== Subnav ===== */
+
+.subnav {
+  height: 60px;
+  margin-bottom: 0;
+  color: #777;
+  line-height: 60px;
+}
+.subnav .link {
+  width: 30px;
+  height: 30px;
+  margin: 15px 15px 0 0;
+  float: right;
+  border-radius: 2px;
+  background: #f2f2f2;
+  color: #222;
+  padding: 0;
   line-height: 35px;
-  display: none;
+  text-align: center;
+}
+#bok {
+  padding-left: 30px;
+  font-size: 25px;
+  font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
+  font-weight: normal;
 }
 
 /* ===== Event list item style ===== */
@@ -347,7 +319,23 @@ body.app, .transfer {
   content: '#';
 }
 
+/* ===== App like text selection ===== */
 
+body.app, .transfer {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+.content *[id*="data-"], .content *[class*="data-"] {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  -o-user-select: text;
+  user-select: text;
+}
 
 
 /* ==========================================================

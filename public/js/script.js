@@ -18,13 +18,6 @@ elements.btnOverview = $('#btn-overview');
 
 $(function() {
 
-  // Transfer between app and site
-  $('.transfer').click(function() {
-    toggleView();
-  });
-
-
-
   // Universal form actions
   $('form .btn-add').click(function(e) {
     e.preventDefault();
@@ -64,17 +57,29 @@ $(function() {
         History.log(State.data, State.title, State.url);
     });
 
-    $('.link').not('.transfer').click(function(e) {
+    $('.link, .transfer').click(function(e) {
       e.preventDefault();
       var contentId = $(this).attr('href');
-      if (contentId == 0) {
-        var contentId = 'overview';
-      }
+      var contentTitle = $(this).data('title');
       console.log(contentId);
+      console.log(contentTitle);
 
-      History.pushState({state:contentId}, "State " + contentId, "/app/" + contentId);
+      // History.pushState({state:contentId}, "Bok - " + contentTitle, "/app/" + contentId);
+      // changeContent(contentId);
 
-      changeContent(contentId);
+      // Dev mode: Toggle view
+      if (!$(this).hasClass('transfer')) {
+        History.pushState({state:contentId}, "Bok - " + contentTitle, "/app/" + contentId);
+        changeContent(contentId);
+      } else {
+        if (view.app.hasClass('active')) {
+          view.app.removeClass('active');
+          view.site.addClass('active');
+        } else {
+          view.site.removeClass('active');
+          view.app.addClass('active');
+        }
+      }
     });
 
     function changeContent(id) {
@@ -89,38 +94,8 @@ $(function() {
       console.log('#view-' + id);
     }
 
-
-    $('.transfer').click(function(e) {
-      e.preventDefault();
-      var contentId = $(this).attr('href');
-      console.log(contentId);
-
-      History.pushState({state:contentId}, "State " + contentId, "/" + contentId);
-
-      console.log(view.app.hasClass('active'));
-
-      if (view.app.hasClass('active')) {
-        view.app.removeClass('active');
-        view.site.addClass('active');
-      } else {
-        view.site.removeClass('active');
-        view.app.addClass('active');
-      }
-    });
-
 })(window);
 
-function toggleView() {
-  if (view.app.hasClass('active')) {
-    view.site.removeClass('active');
-    view.app.addClass('active');
-    view.body.attr('class', 'app');
-  } else {
-    view.app.removeClass('active');
-    view.site.addClass('active');
-    view.body.attr('class', 'site');
-  }
-}
 
 function getData() {
 }
