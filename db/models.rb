@@ -30,7 +30,8 @@ class User
                :password => params[:password])
     
     if user.nil?
-      new_user = User.new(params) 
+      new_user = User.create(params) 
+      new_user.saved?
     end
   end
 

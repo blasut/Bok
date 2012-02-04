@@ -42,8 +42,17 @@ class AppTest < MiniTest::Unit::TestCase
   def test_that_you_can_register_an_account
     old_user_count = User.count
     post '/register', @attr.merge(:email => "test@example.com")
-    assert last_response.body.include?('true')
+    assert_equal 'true', last_response.body
     assert User.count, old_user_count + 1
+  end
+
+  def test_that_it_fails_when_email_already_exist
+    post '/register', @attr.merge(:email => "test@example2.com")
+
+    old_user_count = User.count
+    post '/register', @attr.merge(:email => "test@example2.com")
+    assert_equal 'false', last_response.body
+    assert User.count, old_user_count
   end
 
   def test_adding_a_inpayment_with_proper_attributes
@@ -63,4 +72,11 @@ class AppTest < MiniTest::Unit::TestCase
     post '/payments', @payment_attr.merge(:payment_type => "salary")
     assert_equal "true", last_response.body
   end
+
+  def test_adding_a_payment_with_inproper_attributes
+    login
+    post '/payments', @payment_attr.merge(:payment_type => "kowadkoawdkoawkoddwa")
+    assert_equal "false", last_response.body
+  end
+
 end
