@@ -109,42 +109,64 @@ body {
 
 /* ===== Form elements ===== */
 
+.wrap-inp {
+  float: left;
+}
 label {
   display: block;
+  width: 79px;
+  float: left;
+  padding: 12px 22px 0 0;
+  font-size: 18px;
+  font-weight: bold;
 }
 input {
-  margin: 5px 0 15px;
-  padding: 8px 15px;
-  font-size: 22px;
-  border: 0;
-  background: #ccc;
+  margin-bottom: 15px;
+  padding: 10px 14px;
+  font-size: 18px;
+  background: #f1f1f1;
   color: #444;
   cursor: pointer;
   border-radius: 2px;
+  border: 3px solid #f1f1f1;
+  width: 266px;
 }
 input:focus {
   background: #fff;
   color: #222;
   outline: 0;
   cursor: text;
-  border: 3px solid #ccc;
-  padding: 5px 12px;
+  border-color: #ccc;
 }
-input[type="submit"] {
-  margin: 5px 0 0;
+button {
   background: #ffd015;
   border-radius: 2px;
-  color: #000;
+  float: right;
+  border: 0;
+  margin: 0 33px 0 0;
+  padding: 15px 18px 14px 43px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  width: auto;
+  position: relative;
 }
-#in input[type="submit"]     { background: #2be218; }
-#out input[type="submit"]    { background: #ff1531; }
-#salary input[type="submit"] { background: #157eff; }
-#book input[type="submit"]   { background: #ffd015; }
+button .icon {
+  position: absolute;
+  top: 14px;
+  left: 15px;
+  font-size: 26px;
+}
 
-input[type="submit"]:hover {
+#in button     { background: #2be218; }
+#out button    { background: #ff1531; }
+#salary button { background: #157eff; }
+#book button   { background: #ffd015; }
+
+button:hover {
   cursor: pointer;
 }
-input[type="submit"]:active {
+button:active {
   opacity: 0.8;
 }
 
@@ -189,11 +211,12 @@ h1 {
   font-size: 32px;
 }
 
+#user-action .wrap-inp, #user-action input {
+  float: none;
+}
+
 #user-action label {
   color: #fff;
-}
-#user-action input {
-  width: 270px;
 }
 #user-action #btn-login {
   width: 150px;
@@ -248,16 +271,6 @@ h1 {
   font-size: 25px;
 }
 
-#btn-in:before { background: #2be218; }
-#btn-out:before { background: #ff1531; }
-#btn-salary:before { background: #157eff; }
-#btn-book:before { background: #ffd015; }
-
-#in #btn-in { color: #2be218; }
-#out #btn-out { color: #ff1531; }
-#salary #btn-salary { color: #157eff; }
-#book #btn-book { color: #ffd015; }
-
 .item .link:before {
   content: '+';
   width: 30px;
@@ -273,6 +286,16 @@ h1 {
   font-weight: bold;
   border-radius: 2px;
 }
+
+#btn-in:before { background: #2be218; }
+#btn-out:before { background: #ff1531; }
+#btn-salary:before { background: #157eff; }
+#btn-book:before { background: #ffd015; }
+
+#in #btn-in { color: #2be218; }
+#out #btn-out { color: #ff1531; }
+#salary #btn-salary { color: #157eff; }
+#book #btn-book { color: #ffd015; }
 
 /* ===== Subnav ===== */
 

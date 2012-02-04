@@ -34,11 +34,11 @@
       <div id="login">
         <form action="/login" method="post">
           <div class="wrap-inp">
-            <label for="inp-email">E-post</label>
+            <label for="inp-email">E-post:</label>
             <input type="email" id="inp-email" name="email" value="test@example.com">
           </div>
           <div class="wrap-inp">
-            <label for="inp-email">Lösenord</label>
+            <label for="inp-email">Lösenord:</label>
             <input type="password" id="inp-password" name="password">
           </div>
           <input type="submit" value="Logga in" id="btn-login" class="btn-add">
@@ -93,27 +93,27 @@
       <article class="content" id="view-in">
         <form action="/payments" method="post">
           <div class="wrap-inp">
-            <label for="inp-in-title">Titel</label>
+            <label for="inp-in-title">Titel:</label>
             <input type="text" id="inp-in-title" name="title" placeholder="En bok">
             <a href="" class="info"></a>
           </div>
           <div class="wrap-inp">
-            <label for="inp-in-sum">Summa</label>
+            <label for="inp-in-sum">Summa:</label>
             <input type="text" id="inp-in-sum" name="sum" placeholder="123">
             <a href="" class="info"></a>
           </div>
           <div class="wrap-inp">
-            <label for="inp-in-vat">Moms</label>
+            <label for="inp-in-vat">Moms:</label>
             <input type="text" id="inp-in-vat" name="vat" placeholder="25">
             <a href="" class="info"></a>
           </div>
           <div class="wrap-inp">
-            <label for="inp-in-date">Datum</label>
+            <label for="inp-in-date">Datum:</label>
             <input type="date" id="inp-in-date" date="date" name="date" placeholder="<%= @time %>">
             <a href="" class="info"></a>
           </div>
           <input name="payout_type" type="hidden" value="0" />
-          <input type="submit" value="Addera" class="btn-add">
+          <button type="submit" class="btn-add"><i class="icon">c</i> Addera</button>
         </form>
       </article>
 
@@ -121,26 +121,26 @@
       <article class="content" id="view-out">
         <form action="">
           <div class="wrap-inp">
-            <label for="inp-out-title">Titel</label>
+            <label for="inp-out-title">Titel:</label>
             <input type="text" id="inp-out-title">
             <a href="" class="info"></a>
           </div>
           <div class="wrap-inp">
-            <label for="inp-out-sum">Summa</label>
+            <label for="inp-out-sum">Summa:</label>
             <input type="text" id="inp-out-sum">
             <a href="" class="info"></a>
           </div>
           <div class="wrap-inp">
-            <label for="inp-out-vat">Moms</label>
+            <label for="inp-out-vat">Moms:</label>
             <input type="text" id="inp-out-vat">
             <a href="" class="info"></a>
           </div>
           <div class="wrap-inp">
-            <label for="inp-out-date">Datum</label>
+            <label for="inp-out-date">Datum:</label>
             <input type="date" id="inp-out-date">
             <a href="" class="info"></a>
           </div>
-          <input type="submit" value="Addera" class="btn-add">
+          <button type="submit" class="btn-add"><i class="icon">c</i> Addera</button>
         </form>
       </article>
 
@@ -148,21 +148,21 @@
       <article class="content" id="view-salary">
         <form action="">
           <div class="wrap-inp">
-            <label for="inp-out-title">Titel</label>
+            <label for="inp-out-title">Titel:</label>
             <input type="text" id="inp-out-title">
             <a href="" class="info"></a>
           </div>
           <div class="wrap-inp">
-            <label for="inp-out-sum">Summa</label>
+            <label for="inp-out-sum">Summa:</label>
             <input type="text" id="inp-out-sum">
             <a href="" class="info"></a>
           </div>
           <div class="wrap-inp">
-            <label for="inp-out-date">Datum</label>
+            <label for="inp-out-date">Datum:</label>
             <input type="date" id="inp-out-date">
             <a href="" class="info"></a>
           </div>
-          <input type="submit" value="Addera" class="btn-add">
+          <button type="submit" class="btn-add"><i class="icon">c</i> Addera</button>
         </form>
       </article>
 
