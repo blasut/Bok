@@ -61,11 +61,18 @@ $(function() {
       e.preventDefault();
       var contentId = $(this).attr('href');
       var contentTitle = $(this).data('title');
+      if (contentId == 0) {
+        var contentId = 'overview';
+      }
       console.log(contentId);
       console.log(contentTitle);
 
+      view.app.attr('id', '');
+      view.app.attr('id', contentId);
+
       // History.pushState({state:contentId}, "Bok - " + contentTitle, "/app/" + contentId);
       // changeContent(contentId);
+
 
       // Dev mode: Toggle view
       if (!$(this).hasClass('transfer')) {
@@ -75,9 +82,11 @@ $(function() {
         if (view.app.hasClass('active')) {
           view.app.removeClass('active');
           view.site.addClass('active');
+          view.body.addClass('site');
         } else {
           view.site.removeClass('active');
           view.app.addClass('active');
+          view.body.addClass('app');
         }
       }
     });
