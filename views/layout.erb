@@ -29,9 +29,9 @@
       <h1>Det första simpla bokföringsappet</h1>
     </header>
 
-    <!-- Login form: -->
+    <!-- Login/logout form: -->
     <section id="user-action">
-    <% unless(@logged_in == true) %>
+    <% if(@logged_in == true) %>
       <div id="logout">
         <a href="" class="link btn-logout"><i class="icon">q</i> Logga ut</a>
       </div>

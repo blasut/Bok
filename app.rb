@@ -5,16 +5,18 @@ class MyApp < Sinatra::Base
   # App code
   enable :sessions
 
-  get '/' do
+  def root
     @logged_in = session[:logged_in]
     @time = Time.now.strftime("%Y/%m/%d") 
     erb :layout 
   end
 
+  get '/' do
+    root
+  end
+
   get  %r{/app(/.*)?} do
-    @logged_in = session[:logged_in]
-    @time = Time.now.strftime("%Y/%m/%d") 
-    erb :layout 
+    root
   end
 
   post '/payments' do
