@@ -28,12 +28,8 @@ $(function() {
   // Universal form actions
   $('form .btn-add').click(function(e) {
     e.preventDefault();
-
-    console.log("SEND DA FORM");
-
     var form = $(this).parent();
-
-    console.log(form);
+    console.log("Sending from form");
 
     $.post(form.attr('action'), form.serialize(), function(data) {
       console.log(data);
@@ -127,15 +123,6 @@ function toggleView() {
 }
 
 function getData() {
-    if (view.app.is(':visible')) {
-      view.site.removeClass('active');
-      view.app.addClass('active');
-      view.body.attr('class', 'app');
-    } else {
-      view.app.removeClass('active');
-      view.site.addClass('active');
-      view.body.attr('class', 'site');
-    }
 }
 
 window.addEventListener("popstate", function(e) {
