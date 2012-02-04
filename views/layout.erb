@@ -14,24 +14,24 @@
 
   <!-- CSS concatenated and minified via ant build script-->
   <link rel="stylesheet" href="/css/style.css">
+  <link href="//get.pictos.cc/fonts/583/4" rel="stylesheet" type="text/css">
   <!-- end CSS-->
 
   <script src="js/libs/modernizr-2.0.6.min.js"></script>
 </head>
-<body class="site">
+<body class="site clearfix">
 
 
   <div class="container active" id="site">
     <header id="page-header">
       <!-- Logo and description: -->
       <strong id="logo"><a href="overview" class="link">Bok</a></strong>
-      <h1>Det första lätta bokföringsappet tja lol</h1>
+      <h1>Punchline</h1>
     </header>
 
     <!-- Login form: -->
     <% unless(@logged_in == true) %>
     <section id="logout">
-      <a href="" class="link" id="btn-logout">Logga ut</a>
     </section>
     <% else %>
     <section id="login">
@@ -59,13 +59,13 @@
         <li class="item"><a href="out" class="link" id="btn-out">Utgift</a></li>
         <li class="item"><a href="salary" class="link" id="btn-salary">Löne uttag</a></li>
         <li class="item"><a href="book" class="link" id="btn-book">Bokföring</a></li>
-        <li class="item secondary"><a href="settings" class="link" id="btn-settings">Inställningar</a></li>
-        <li class="item secondary"><a href="" class="link transfer" id="btn-logout">Logga ut</a></li>
+        <li class="item secondary"><a href="settings" class="link" id="btn-settings">s</a></li>
+        <li class="item secondary"><a href="" class="link transfer" id="btn-logout">q</a></li>
       </ul>
     </nav>
 
     <!-- App views: -->
-
+    <a href="" class="link" id="btn-overview">h</a>
     <article class="content active" id="view-overview">
       <section>
         <h3>Överblick</h3>
@@ -91,7 +91,7 @@
         </div>
       </section>
 
-      <section class="widget">
+      <section class="latest">
         <h4>Senaste händelser</h4>
         <ul class="events">
           <li class="event">
@@ -142,6 +142,27 @@
           <input type="submit" value="Addera" class="btn-add">
         </form>
       </section>
+
+      <section class="latest">
+        <h4>Senaste inkomsterna</h4>
+        <ul class="events">
+          <li class="event">
+            <span class="data-sum">1000 </span>
+            <strong class="data-title">Bokköp: The Manual </strong>
+            <i class="data-nr">42</i>
+          </li>
+          <li class="event">
+            <span class="data-sum">10 000</span>
+            <strong class="data-title">Bokköp: The Manual </strong>
+            <i class="data-nr">41</i>
+          </li>
+          <li class="event">
+            <span class="data-sum">100</span>
+            <strong class="data-title">Bokköp: The Manual </strong>
+            <i class="data-nr">40</i>
+          </li>
+        </ul>
+      </section>
     </article>
 
     <article class="content" id="view-out">
@@ -172,6 +193,27 @@
           <input type="submit" value="Addera" class="btn-add">
         </form>
       </section>
+
+      <section class="latest">
+        <h4>Senaste utgiftera</h4>
+        <ul class="events">
+          <li class="event">
+            <span class="data-sum">1000 </span>
+            <strong class="data-title">Bokköp: The Manual </strong>
+            <i class="data-nr">42</i>
+          </li>
+          <li class="event">
+            <span class="data-sum">10 000</span>
+            <strong class="data-title">Bokköp: The Manual </strong>
+            <i class="data-nr">41</i>
+          </li>
+          <li class="event">
+            <span class="data-sum">100</span>
+            <strong class="data-title">Bokköp: The Manual </strong>
+            <i class="data-nr">40</i>
+          </li>
+        </ul>
+      </section>
     </article>
 
     <article class="content" id="view-salary">
@@ -197,6 +239,27 @@
           <input type="submit" value="Addera" class="btn-add">
         </form>
       </section>
+
+      <section class="latest">
+        <h4>Senaste löneuttag</h4>
+        <ul class="events">
+          <li class="event">
+            <span class="data-sum">1000 </span>
+            <strong class="data-title">Bokköp: The Manual </strong>
+            <i class="data-nr">42</i>
+          </li>
+          <li class="event">
+            <span class="data-sum">10 000</span>
+            <strong class="data-title">Bokköp: The Manual </strong>
+            <i class="data-nr">41</i>
+          </li>
+          <li class="event">
+            <span class="data-sum">100</span>
+            <strong class="data-title">Bokköp: The Manual </strong>
+            <i class="data-nr">40</i>
+          </li>
+        </ul>
+      </section>
     </article>
 
     <article class="content" id="view-book">
@@ -209,13 +272,8 @@
   </div>
 
 
-
-  <footer>
-    <!-- About us: -->
-    <a href="" id="info">i</a>
-    <a href="app" class="link transfer" id="view-app">Go to app</a>
-    <a href="" class="link transfer" id="view-site">Go to site</a>
-  </footer>
+  <a href="app" class="transfer" id="view-app">t</a>
+  <a href="" class="transfer" id="view-site">t</a>
 
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>

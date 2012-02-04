@@ -75,6 +75,9 @@ $(function() {
     $('.link').not('.transfer').click(function(e) {
       e.preventDefault();
       var contentId = $(this).attr('href');
+      if (contentId == 0) {
+        var contentId = 'overview';
+      }
       console.log(contentId);
 
       History.pushState({state:contentId}, "State " + contentId, "/app/" + contentId);
