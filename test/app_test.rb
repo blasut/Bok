@@ -11,6 +11,13 @@ class AppTest < MiniTest::Unit::TestCase
     @attr = {:email => "test@test.com",
                         :password => "hej123"}
     @user = User.first_or_create(@attr)
+    @payment_attr = {
+      :title => "Title",
+      :sum => 123,
+      :vat => 25,
+      :date => Date.today,
+      :payment_type => "ingoing"
+    }
   end
   
   def login
@@ -39,17 +46,21 @@ class AppTest < MiniTest::Unit::TestCase
     assert User.count, old_user_count + 1
   end
 
-  def test_adding_a_payment_with_proper_attributes
+  def test_adding_a_inpayment_with_proper_attributes
     login
-    payment_attr = {
-      :title => "Title",
-      :sum => 123,
-      :vat => 25,
-      :date => Date.today,
-      :payment_type => 1
-    }
-    post '/payments', payment_attr
+    post '/payments', @payment_attr.merge(:payment_type => "ingoing")
     assert_equal "true", last_response.body
   end
 
+  def test_adding_a_outpayment_with_proper_attributes
+    login
+    post '/payments', @payment_attr.merge(:payment_type => "outgoing")
+    assert_equal "true", last_response.body
+  end
+
+  def test_adding_a_salarypayment_with_proper_attributes
+    login
+    post '/payments', @payment_attr.merge(:payment_type => "salary")
+    assert_equal "true", last_response.body
+  end
 end

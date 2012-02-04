@@ -2,6 +2,12 @@ require 'sinatra/base'
 require_relative 'db/models'
 
 class MyApp < Sinatra::Base
+  PAYMENT_TYPES = { 
+    "ingoing" => 0,
+    "outgoing" => 1,
+    "salary" => 2
+  }
+  
   # App code
   enable :sessions
 
@@ -21,6 +27,7 @@ class MyApp < Sinatra::Base
 
   post '/payments' do
     u = User.get(session[:current_user_id])
+    params["payment_type"] = PAYMENT_TYPES[params[:payment_type]] 
     p = u.payments.create(params)
      
     if p.saved?
