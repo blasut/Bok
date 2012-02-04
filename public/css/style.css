@@ -141,7 +141,7 @@ body {
 
 /* ===== App like text selection ===== */
 
-body.app {
+body.app, .transfer {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -217,6 +217,7 @@ body.app {
   height: 30px;
   text-align: center;
   line-height: 35px;
+  display: none;
 }
 
 /* ===== Event list item style ===== */
@@ -346,7 +347,7 @@ body.site {
 
 }
 
-.container.active, .content.active {
+.container.active, .content.active, #btn-overview.active {
   display: block;
 }
 

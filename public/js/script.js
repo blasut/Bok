@@ -4,27 +4,23 @@ Anton Trollbäck
 */
 
 var view = {};
-// cache selectors
-view.site = $('#site');
-view.app = $('#app');;
+// cache view selectors
 view.body = $('body');
+view.site = $('#site');
+view.app = $('#app');
+
+var elements = {};
+// cache random selectors
+elements.btnOverview = $('#btn-overview');
+
+
+
 
 $(function() {
 
-  console.log(view);
-
   // Transfer between app and site
   $('.transfer').click(function() {
-
-    if (view.app.is(':visible')) {
-      view.site.removeClass('active');
-      view.app.addClass('active');
-      view.body.attr('class', 'app');
-    } else {
-      view.app.removeClass('active');
-      view.site.addClass('active');
-      view.body.attr('class', 'site');
-    }
+    toggleView();
   });
 
 
@@ -46,7 +42,7 @@ $(function() {
         getData();
         $('#login').hide();
         $('#btn-logout').removeClass('hidden');
-        $('#app').fadeIn().show();
+        view.app.fadeIn().show();
       } else if(data == "false_login") {
         alert('Fel inlogg')
       }
@@ -89,6 +85,11 @@ $(function() {
       console.log("Change content");
       $('.content').removeClass('active');
       $('#view-' + id).addClass('active');
+      if (!$('#view-overview').hasClass('active')) {
+        elements.btnOverview.addClass('active');
+      } else {
+        elements.btnOverview.removeClass('active');
+      }
       console.log('#view-' + id);
     }
 
@@ -103,8 +104,8 @@ $(function() {
       console.log(view.app.hasClass('active'));
 
       if (view.app.hasClass('active')) {
-      view.app.removeClass('active');
-      view.site.addClass('active');
+        view.app.removeClass('active');
+        view.site.addClass('active');
       } else {
         view.site.removeClass('active');
         view.app.addClass('active');
@@ -113,9 +114,28 @@ $(function() {
 
 })(window);
 
+function toggleView() {
+  if (view.app.hasClass('active')) {
+    view.site.removeClass('active');
+    view.app.addClass('active');
+    view.body.attr('class', 'app');
+  } else {
+    view.app.removeClass('active');
+    view.site.addClass('active');
+    view.body.attr('class', 'site');
+  }
+}
 
 function getData() {
-
+    if (view.app.is(':visible')) {
+      view.site.removeClass('active');
+      view.app.addClass('active');
+      view.body.attr('class', 'app');
+    } else {
+      view.app.removeClass('active');
+      view.site.addClass('active');
+      view.body.attr('class', 'site');
+    }
 }
 
 window.addEventListener("popstate", function(e) {
