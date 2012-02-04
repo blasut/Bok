@@ -41,7 +41,7 @@ $(function() {
       if(data == "true_login") {
         getData();
         $('#login').hide();
-        $('#btn-logout').removeClass('hidden');
+        $('.btn-logout').removeClass('hidden');
         view.app.fadeIn().show();
       } else if(data == "false_login") {
         alert('Fel inlogg')

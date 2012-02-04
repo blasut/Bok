@@ -19,36 +19,38 @@
 
   <script src="js/libs/modernizr-2.0.6.min.js"></script>
 </head>
-<body class="site clearfix">
+<body class="site">
 
 
   <div class="container active" id="site">
     <header id="page-header">
       <!-- Logo and description: -->
-      <strong id="logo"><a href="overview" class="link">Bok</a></strong>
-      <h1>Punchline</h1>
+      <strong id="logo">Bok <sup>beta</sup></strong>
+      <h1>Det första simpla bokföringsappet</h1>
     </header>
 
     <!-- Login form: -->
+    <section id="user-action">
     <% unless(@logged_in == true) %>
-    <section id="logout">
-    </section>
+      <div id="logout">
+        <a href="" class="link btn-logout"><i class="icon">q</i> Logga ut</a>
+      </div>
     <% else %>
-    <section id="login">
-      <form action="/login" method="post">
-        <fieldset>logga in</fieldset>
-        <div class="wrap-inp">
-          <label for="inp-email">E-post</label>
-          <input type="email" id="inp-email" name="email" value="test@example.com">
-        </div>
-        <div class="wrap-inp">
-          <label for="inp-email">Lösenord</label>
-          <input type="password" id="inp-password" name="password">
-        </div>
-        <input type="submit" value="Logga in" id="btn-login" class="btn-add">
-      </form>
-    </section>
+      <div id="login">
+        <form action="/login" method="post">
+          <div class="wrap-inp">
+            <label for="inp-email">E-post</label>
+            <input type="email" id="inp-email" name="email" value="test@example.com">
+          </div>
+          <div class="wrap-inp">
+            <label for="inp-email">Lösenord</label>
+            <input type="password" id="inp-password" name="password">
+          </div>
+          <input type="submit" value="Logga in" id="btn-login" class="btn-add">
+        </form>
+      </div>
     <% end %>
+    </section>
   </div>
 
   <div class="container" id="app">
@@ -60,14 +62,14 @@
         <li class="item"><a href="salary" class="link" id="btn-salary">Löne uttag</a></li>
         <li class="item"><a href="book" class="link" id="btn-book">Bokföring</a></li>
         <li class="item secondary"><a href="settings" class="link" id="btn-settings">s</a></li>
-        <li class="item secondary"><a href="" class="link transfer" id="btn-logout">q</a></li>
+        <li class="item secondary"><a href="" class="link btn-logout">q</a></li>
       </ul>
     </nav>
 
     <!-- App views: -->
     <a href="" class="link" id="btn-overview">h</a>
     <article class="content active" id="view-overview">
-      <section>
+      <section class="clearfix">
         <h3>Överblick</h3>
 
         <ul class="column">
@@ -116,7 +118,6 @@
     <article class="content" id="view-in">
       <h3>Inkomst</h3>
       <section>
-        <h4>Addera en inkomst</h4>
         <form action="/payments" method="post">
           <div class="wrap-inp">
             <label for="inp-in-title">Titel</label>
@@ -168,7 +169,6 @@
     <article class="content" id="view-out">
       <h3>Utgift</h3>
       <section>
-        <h4>Addera en utgift</h4>
         <form action="">
           <div class="wrap-inp">
             <label for="inp-out-title">Titel</label>
@@ -219,7 +219,6 @@
     <article class="content" id="view-salary">
       <h3>Löneuttag</h3>
       <section>
-        <h4>Lägg till ett löneuttag</h4>
         <form action="">
           <div class="wrap-inp">
             <label for="inp-out-title">Titel</label>

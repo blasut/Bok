@@ -1,6 +1,9 @@
-/* HTML5 ✰ Boilerplate
- * ==|== normalize ==========================================================
- */
+
+/* =========================================================================
+   Author: Anton Trollbäck
+           anton.trollback.se
+           @antontrollback
+   =========================================== Using HTML5 ✰ Boilerplate === */
 
 article, aside, details, figcaption, figure, footer, header, hgroup, nav, section { display: block; }
 audio, canvas, video { display: inline-block; *display: inline; *zoom: 1; }
@@ -60,6 +63,8 @@ table { border-collapse: collapse; border-spacing: 0; }
 td { vertical-align: top; }
 
 
+
+
 /* ==========================================================
    Document styles
    ========================================================= */
@@ -82,6 +87,8 @@ body {
 }
 
 
+
+
 /* ==========================================================
    Universal rules
    ========================================================= */
@@ -93,16 +100,101 @@ body {
 
 /* ===== Pictos icon font ===== */
 
-#view-app, #view-site, #btn-settings, #app-nav #btn-logout, #btn-overview  {
+.icon, #view-app, #view-site, #btn-settings, #app-nav .btn-logout, #btn-overview  {
   font-family: 'Pictos Custom';
   -webkit-font-smoothing: antialiased;
 }
+.icon {
+  font-weight: normal !important;
+  font-style: normal !important;
+}
+
+/* ===== Form elements ===== */
+
+label {
+  display: block;
+}
+input {
+  margin: 5px 0 15px;
+  padding: 8px 15px;
+  font-size: 22px;
+  border: 0;
+  background: #ccc;
+  color: #444;
+  cursor: pointer;
+  border-radius: 2px;
+}
+input:focus {
+  background: #fff;
+  color: #222;
+  outline: 0;
+  cursor: text;
+  border: 3px solid #ccc;
+  padding: 5px 12px;
+}
+input[type="submit"] {
+  margin: 5px 0 0;
+  background: #ffd015;
+  border-radius: 2px;
+  color: #000;
+}
+input[type="submit"]:hover {
+  cursor: pointer;
+}
+input[type="submit"]:active {
+  opacity: 0.8;
+}
+
 
 
 
 /* ==========================================================
    Site layout
    ========================================================= */
+
+/* ===== Site header ===== */
+
+#logo {
+  text-align: center;
+  display: block;
+  font-size: 59px;
+}
+#logo sup {
+  font-size: 21px;
+  top: -29px;
+  color: #999;
+  left: -8px;
+}
+
+h1 {
+  text-align: center;
+  font-weight: normal;
+  font-size: 18px;
+  margin: 10px 0 30px;
+}
+
+/* ===== Login / register / logout ===== */
+
+#user-action {
+  width: 300px;
+  margin: 30px auto;
+  background: #222;
+  border-radius: 2px;
+  padding: 30px;
+}
+#user-action .btn-logout {
+  font-size: 32px;
+}
+
+#user-action label {
+  color: #fff;
+}
+#user-action input {
+  width: 270px;
+}
+#user-action #btn-login {
+  width: 150px;
+}
 
 
 
@@ -112,10 +204,6 @@ body {
    ========================================================= */
 
 /* ===== Basic app structure ===== */
-
-#app {
-  min-height: 530px;
-}
 
 .content {
   width: 580px;
@@ -198,7 +286,7 @@ body.app, .transfer {
   width: 100%;
 }
 
-#app-nav #btn-settings, #app-nav #btn-logout{
+#app-nav #btn-settings, #app-nav .secondary .btn-logout {
   font-size: 60px;
   line-height: 107px;
 }
@@ -260,6 +348,8 @@ body.app, .transfer {
 }
 
 
+
+
 /* ==========================================================
    App content views
    ========================================================= */
@@ -300,9 +390,7 @@ body.app, .transfer {
 
 .latest {
   clear: both;
-  position: absolute;
-  bottom: 20px; left: 30px;
-  width: 580px;
+  margin-top: 30px;
   border-top: 3px solid #f2f2f2;
 }
 
@@ -312,10 +400,10 @@ body.app, .transfer {
 
 
 
+
 /* ==========================================================
    Positioned navigation
    ========================================================= */
-
 
 #view-app, #view-site {
   font-size: 32px;
@@ -333,6 +421,7 @@ body.app, .transfer {
 #view-app:hover, #view-site:hover {
   background: #222;
 }
+
 
 
 
@@ -361,8 +450,10 @@ body.site #view-site {
 
 
 
+/* ==========================================================
+   non-semantic helper classes
+   ========================================================= */
 
-/* ==|== non-semantic helper classes ======================================== */
 .ir { display: block; border: 0; text-indent: -999em; overflow: hidden; background-color: transparent; background-repeat: no-repeat; text-align: left; direction: ltr; }
 .ir br { display: none; }
 .hidden { display: none !important; visibility: hidden; }
@@ -374,7 +465,11 @@ body.site #view-site {
 .clearfix { zoom: 1; }
 
 
-/* ==|== media queries ====================================================== */
+
+
+/* ==========================================================
+   media queries
+   ========================================================= */
 
 @media only screen and (min-width: 480px) {
 
@@ -387,7 +482,9 @@ body.site #view-site {
 
 
 
-/* ==|== print styles ======================================================= */
+/* ==========================================================
+   Print styles
+   ========================================================= */
 
 @media print {
   * { background: transparent !important; color: black !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; }
@@ -403,3 +500,6 @@ body.site #view-site {
   p, h2, h3 { orphans: 3; widows: 3; }
   h2, h3 { page-break-after: avoid; }
 }
+
+
+
