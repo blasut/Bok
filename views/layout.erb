@@ -25,12 +25,7 @@
     </header>
 
     <!-- Login/logout form: -->
-    <section id="user-action">
-    <% if(@logged_in == true) %>
-      <div id="logout">
-        <a href="" class="link btn-logout"><i class="icon">q</i> Logga ut</a>
-      </div>
-    <% else %>
+    <section id="user-action" <% if(@logged_in == true) %>class="logged-in"<% end %>>
       <div id="login">
         <form action="/login" method="post">
           <div class="wrap-inp">
@@ -44,7 +39,6 @@
           <input type="submit" value="Logga in" id="btn-login" class="btn-add">
         </form>
       </div>
-    <% end %>
     </section>
   </div>
 

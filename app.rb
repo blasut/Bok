@@ -18,7 +18,11 @@ class MyApp < Sinatra::Base
   end
 
   get '/' do
-    root
+    if session[:logged_in]
+      redirect '/app'
+    else
+      root
+    end
   end
 
   get  %r{/app(/.*)?} do
