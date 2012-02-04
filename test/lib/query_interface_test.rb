@@ -14,12 +14,8 @@ class QueryInterfaceTest < MiniTest::Unit::TestCase
     QueryInterface.new "Visa alla"
   end
 
-  def test_that_it_accepts_strings
-    q = QueryInterface.new "Visa alla"
-  end
-
-  def test_that_it_returns_the_query_when_asked
-    assert_equal "Visa alla", it.query 
+  def test_that_it_breaks_up_the_query_string_to_an_array
+    assert_equal ["Visa", "alla"], it.query 
   end
 
 end
