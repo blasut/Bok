@@ -114,7 +114,7 @@ body {
 }
 label {
   display: block;
-  width: 79px;
+  width: 68px;
   float: left;
   padding: 12px 22px 0 0;
   font-size: 18px;
@@ -129,7 +129,7 @@ input {
   cursor: pointer;
   border-radius: 2px;
   border: 3px solid #f1f1f1;
-  width: 266px;
+  width: 245px;
 }
 input:focus {
   background: #fff;
@@ -143,8 +143,7 @@ button {
   border-radius: 2px;
   float: right;
   border: 0;
-  margin: 0 33px 0 0;
-  padding: 15px 18px 14px 43px;
+  padding: 15px 92px 14px 43px;
   color: #fff;
   font-weight: bold;
   font-size: 16px;
@@ -169,6 +168,25 @@ button:hover {
 button:active {
   opacity: 0.8;
 }
+
+#inp-in-title, #inp-out-title, #inp-salary-title {
+  width: 456px;
+}
+#inp-in-sum, #inp-out-sum {
+  width: 168px;
+}
+#view-salary #inp-out-sum {
+  width: 245px;
+}
+#inp-in-vat, #inp-out-vat {
+  width: 157px;
+}
+
+label[for="inp-in-vat"], label[for="inp-out-vat"] {
+  margin-left: 20px;
+  width: 55px;
+}
+
 
 
 
@@ -247,6 +265,7 @@ h1 {
 
 .content {
   display: none;
+  overflow: hidden;
 }
 
 /* ===== Main app navigation ===== */
@@ -272,7 +291,7 @@ h1 {
 }
 
 .item .link:before {
-  content: '+';
+  content: '–';
   width: 30px;
   height: 30px;
   display: block;
@@ -281,21 +300,22 @@ h1 {
   top: 30px;
   left: 30px;
   text-align: center;
-  line-height: 1;
+  line-height: 24px;
   color: #222;
   font-weight: bold;
   border-radius: 2px;
+  font-size: 28px;
 }
 
-#btn-in:before { background: #2be218; }
-#btn-out:before { background: #ff1531; }
+#btn-in:before     { background: #2be218; content:'+'; font-size: 30px; }
+#btn-out:before    { background: #ff1531; }
 #btn-salary:before { background: #157eff; }
-#btn-book:before { background: #ffd015; }
+#btn-book:before   { background: #ffd015; content:'='; }
 
-#in #btn-in { color: #2be218; }
-#out #btn-out { color: #ff1531; }
+#in #btn-in         { color: #2be218; }
+#out #btn-out       { color: #ff1531; }
 #salary #btn-salary { color: #157eff; }
-#book #btn-book { color: #ffd015; }
+#book #btn-book     { color: #ffd015; }
 
 /* ===== Subnav ===== */
 
@@ -329,7 +349,8 @@ h1 {
 .event {
   width: 100%;
   overflow: hidden;
-  min-height: 40px;
+  min-height: 55px;
+  line-height: 55px;
 }
 .event:nth-child(2n+2) {
   background: #ededed;
@@ -339,21 +360,18 @@ h1 {
   margin: 0 20px;
   width: 100px;
   border-right: 2px solid #ccc;
-  height: 40px;
-  line-height: 40px;
+  height: 100%;
 }
 .data-sum:after {
   content: ' kr';
 }
 .data-title {
   float: left;
-  height: 40px;
-  line-height: 40px;
+  height: 100%;
 }
 .data-nr {
   float: right;
-  height: 40px;
-  line-height: 40px;
+  height: 100%;
   font-style: normal;
   margin-right: 20px;
   color: #999;
@@ -422,12 +440,14 @@ body.app, .transfer {
 
 .latest {
   clear: both;
-  margin-top: 30px;
+  margin-top: 20px;
   border-top: 3px solid #f2f2f2;
 }
 
 .latest h4 {
-
+  margin: 12px 0 13px;
+  font-size: 22px;
+  font-weight: normal;
 }
 
 
