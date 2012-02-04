@@ -257,6 +257,7 @@ h1 {
   border-top: 12px solid #ffd015;
   border-radius: 2px;
   background: #fff;
+  position: relative;
 }
 #in #main-content     { border-color: #2be218; }
 #out #main-content    { border-color: #ff1531; }
@@ -352,14 +353,14 @@ h1 {
   min-height: 55px;
   line-height: 55px;
 }
-.event:nth-child(2n+2) {
-  background: #ededed;
+.event:nth-child(2n+1) {
+  background: #f2f2f2;
 }
 .data-sum {
   float: left;
   margin: 0 20px;
   width: 100px;
-  border-right: 2px solid #ccc;
+  border-right: 1px solid #ccc;
   height: 100%;
 }
 .data-sum:after {
@@ -441,14 +442,28 @@ body.app, .transfer {
 .latest {
   clear: both;
   margin-top: 20px;
-  border-top: 3px solid #f2f2f2;
+  border-top: 3px solid #ddd;
+  position: absolute;
+  width: 580px;
+  left: 30px;
+  bottom: 30px;
 }
 
 .latest h4 {
-  margin: 12px 0 13px;
-  font-size: 22px;
+  background: #fff;
+  font-size: 18px;
   font-weight: normal;
+  color: #999;
+  text-align: center;
+  width: auto;
+  padding: 0 5px;
+  display: inline-block;
+  top: -13px;
+  position: relative;
+  margin: 0 0 10px;
+  left: 15px;
 }
+
 
 
 
@@ -499,6 +514,12 @@ body.site #view-site {
   display: none;
 }
 
+
+h4 i { display: none; }
+#overview h4 .events-all,
+#in h4 .events-in,
+#out h4 .events-out,
+#salary h4 .events-salary { display: inline; font-style: normal;}
 
 
 
