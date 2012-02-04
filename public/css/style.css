@@ -157,10 +157,10 @@ button .icon {
   font-size: 26px;
 }
 
-#in button     { background: #2be218; }
-#out button    { background: #ff1531; }
-#salary button { background: #157eff; }
-#book button   { background: #ffd015; }
+.in button     { background: #2be218; }
+.out button    { background: #ff1531; }
+.salary button { background: #157eff; }
+.book button   { background: #ffd015; }
 
 button:hover {
   cursor: pointer;
@@ -259,10 +259,10 @@ h1 {
   background: #fff;
   position: relative;
 }
-#in #main-content     { border-color: #2be218; }
-#out #main-content    { border-color: #ff1531; }
-#salary #main-content { border-color: #157eff; }
-#book #main-content   { border-color: #ffd015; }
+.in #main-content     { border-color: #2be218; }
+.out #main-content    { border-color: #ff1531; }
+.salary #main-content { border-color: #157eff; }
+.book #main-content   { border-color: #ffd015; }
 
 .content {
   display: none;
@@ -313,10 +313,10 @@ h1 {
 #btn-salary:before { background: #157eff; }
 #btn-book:before   { background: #ffd015; content:'='; }
 
-#in #btn-in         { color: #2be218; }
-#out #btn-out       { color: #ff1531; }
-#salary #btn-salary { color: #157eff; }
-#book #btn-book     { color: #ffd015; }
+.in #btn-in         { color: #2be218; }
+.out #btn-out       { color: #ff1531; }
+.salary #btn-salary { color: #157eff; }
+.book #btn-book     { color: #ffd015; }
 
 /* ===== Subnav ===== */
 
@@ -516,10 +516,10 @@ body.site #view-site {
 
 
 h4 i { display: none; }
-#overview h4 .events-all,
-#in h4 .events-in,
-#out h4 .events-out,
-#salary h4 .events-salary { display: inline; font-style: normal;}
+.overview h4 .events-all,
+.in h4 .events-in,
+.out h4 .events-out,
+.salary h4 .events-salary { display: inline; font-style: normal;}
 
 
 

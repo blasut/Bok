@@ -8,7 +8,6 @@ var view = {};
 view.body = $('body');
 view.site = $('#site');
 view.app = $('#app');
-view.main = $('#app');
 
 var elements = {};
 // cache random selectors
@@ -68,8 +67,8 @@ $(function() {
       console.log(contentId);
       console.log(contentTitle);
 
-      view.app.attr('id', '');
-      view.app.attr('id', contentId);
+      view.body.attr('class', '');
+      view.body.attr('class', contentId);
 
       // History.pushState({state:contentId}, "Bok - " + contentTitle, "/app/" + contentId);
       // changeContent(contentId);
