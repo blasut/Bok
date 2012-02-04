@@ -14,6 +14,6 @@ Rake::TestTask.new do |t|
 end
 
 Rake::TestTask.new do |t|
-  t.name = :test_lib
+  t.name = :lib_test
   t.pattern = "test/lib/**/*_test.rb"
 end
