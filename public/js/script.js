@@ -8,6 +8,7 @@ var view = {};
 view.body = $('body');
 view.site = $('#site');
 view.app = $('#app');
+view.main = $('#app');
 
 var elements = {};
 // cache random selectors
@@ -82,11 +83,9 @@ $(function() {
         if (view.app.hasClass('active')) {
           view.app.removeClass('active');
           view.site.addClass('active');
-          view.body.addClass('site');
         } else {
           view.site.removeClass('active');
           view.app.addClass('active');
-          view.body.addClass('app');
         }
       }
     });
