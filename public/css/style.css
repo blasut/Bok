@@ -338,6 +338,12 @@ h1 {
   line-height: 35px;
   text-align: center;
 }
+#btn-overview {
+  display: none;
+}
+#btn-overview.active {
+  display: block;
+}
 #bok {
   padding-left: 30px;
   font-size: 25px;
