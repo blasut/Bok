@@ -66,15 +66,17 @@ $(function() {
       console.log(contentId);
       console.log(contentTitle);
 
-      view.body.attr('class', '');
-      view.body.attr('class', contentId);
-
+      // view.body.attr('class', '');
+      // view.body.attr('class', contentId);
       // History.pushState({state:contentId}, "Bok - " + contentTitle, "/app/" + contentId);
       // changeContent(contentId);
 
 
       // Dev mode: Toggle view
       if (!$(this).hasClass('transfer')) {
+        view.body.attr('class', '');
+        view.body.attr('class', contentId);
+
         History.pushState({state:contentId}, "Bok - " + contentTitle, "/app/" + contentId);
         changeContent(contentId);
       } else {

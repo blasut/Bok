@@ -100,7 +100,7 @@ body {
 
 /* ===== Pictos icon font ===== */
 
-.icon, .transfer, .subnav .link  {
+.icon, .transfer, .subnav .link, .info  {
   font-family: 'Pictos Custom';
   font-weight: normal !important;
   font-style: normal !important;
@@ -111,10 +111,11 @@ body {
 
 .wrap-inp {
   float: left;
+  position: relative;
 }
 label {
   display: block;
-  width: 100px;
+  width: 110px;
   float: left;
   padding-top: 12px;
   font-size: 18px;
@@ -123,14 +124,14 @@ label {
 }
 input {
   margin-bottom: 15px;
-  padding: 10px 14px;
+  padding: 10px 35px 10px 14px;
   font-size: 18px;
   background: #f1f1f1;
   color: #444;
   cursor: pointer;
   border-radius: 2px;
   border: 3px solid #f1f1f1;
-  width: 250px;
+  width: 240px;
   box-sizing: border-box;
 }
 input:focus {
@@ -149,7 +150,7 @@ button {
   color: #fff;
   font-weight: bold;
   font-size: 16px;
-  width: 230px;
+  width: 206px;
   position: relative;
   box-sizing: border-box;
   text-align: left;
@@ -174,10 +175,10 @@ button:active {
 }
 
 #inp-in-title, #inp-out-title, #inp-salary-title {
-  width: 530px;
+  width: 520px;
 }
 #inp-in-sum, #inp-out-sum {
-  width: 250px;
+  width: 240px;
 }
 #inp-in-vat, #inp-out-vat {
   width: 183px;
@@ -188,6 +189,21 @@ label[for="inp-in-vat"], label[for="inp-out-vat"] {
   width: 77px;
 }
 
+.info, .info:visited {
+  position: absolute;
+  top: 11px;
+  right: 11px;
+  color: #ccc;
+  font-size: 27px;
+}
+.info:hover, .info:focus { color: #999; }
+.info:active {
+  -webkit-transform: scale(.9);
+     -moz-transform: scale(.9);
+      -ms-transform: scale(.9);
+       -o-transform: scale(.9);
+          transform: scale(.9);
+}
 
 
 
