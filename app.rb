@@ -1,7 +1,10 @@
 require 'sinatra/base'
 require_relative 'db/models'
+require 'pry'
 
 class MyApp < Sinatra::Base
+  enable :logging
+
   PAYMENT_TYPES = { 
     "ingoing" => 0,
     "outgoing" => 1,
@@ -43,16 +46,22 @@ class MyApp < Sinatra::Base
 
 
   post '/login' do
-    user = User.first(:email => params[:email],
-                 :password => params[:password])
+  #  require 'ruby-debug/debugger'
+    logger.info "posting to login"
+    user = User.register(params)
 
-    unless user.nil?
+    #binding.pry
+    logger.info "user: #{user}"
+    logger.info "user.nil?: #{user.nil?}"
+
+    if user.nil?
+      "false"
+    else
       session[:logged_in] = true
       session[:current_user_id] = user.id
-      "true_login"
-    else
-      "false_login"
+      "true"
     end
+    #binding.pry
   end
 
   get '/logout' do
@@ -62,11 +71,6 @@ class MyApp < Sinatra::Base
 
   post '/register' do
     # Check if the user exists, then add
-    if User.register params
-      "true"
-    else
-      "false"
-    end
   end
 
   # start the server if the ruby file is executed the ruby server directly

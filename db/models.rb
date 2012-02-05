@@ -26,13 +26,14 @@ class User
 
   def self.register(params)
     # Check if the user exists, if not then create
-    user = User.first(:email => params[:email],
+    user = User.first_or_create(:email => params[:email],
                :password => params[:password])
-    
-    if user.nil?
-      new_user = User.create(params) 
-      new_user.saved?
+    if user.save
+      user
+    else
+      nil
     end
+    #binding.pry
   end
 
 end
