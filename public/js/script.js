@@ -11,7 +11,6 @@ view.app = $('#app');
 
 var elements = {};
 // cache random selectors
-elements.btnOverview = $('#btn-overview');
 
 
 
@@ -62,7 +61,7 @@ $(function() {
       var contentId = $(this).attr('href');
       var contentTitle = $(this).data('title');
       if (contentId == 0) {
-        var contentId = 'overview';
+        var contentId = 'book';
       }
       console.log(contentId);
       console.log(contentTitle);
@@ -93,11 +92,6 @@ $(function() {
       console.log("Change content");
       $('.content').removeClass('active');
       $('#view-' + id).addClass('active');
-      if (!$('#view-overview').hasClass('active')) {
-        elements.btnOverview.addClass('active');
-      } else {
-        elements.btnOverview.removeClass('active');
-      }
       console.log('#view-' + id);
     }
 

@@ -6,6 +6,8 @@ Bokförings app: enkelt, snabbt, tillgängligt, modernt, snyggt
  - checkbox: dubbelkolla lösenord
  - kryptera lösenorden
  - front-end validering
+   - validera att båda är giltiga
+   - när mail finns, men lösen fel = markera lösen fel
  - Ta bort page refresh när man loggar ut
  - Remember me
 - WF till sajtdelen

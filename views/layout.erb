@@ -14,7 +14,7 @@
   <!-- end CSS-->
   <script src="js/libs/modernizr-2.0.6.min.js"></script>
 </head>
-<body>
+<body class="book">
 
 
   <div class="container active clearfix" id="site">
@@ -46,23 +46,18 @@
   <div class="container clearfix" id="app">
     <nav>
       <ul id="app-nav">
-        <li class="item"><a href="in" class="link" id="btn-in" data-title="Addera inkomst">Inkomst</a></li>
-        <li class="item"><a href="out" class="link" id="btn-out" data-title="Addera utgift">Utgift</a></li>
-        <li class="item"><a href="salary" class="link" id="btn-salary" data-title="Addera löneuttag">Löneuttag</a></li>
-        <li class="item"><a href="book" class="link" id="btn-book" data-title="Bokföring">Bokföring</a></li>
-        <li class="subnav">
-          <strong id="bok">Bok</strong>
-          <a href="" class="link" id="btn-logout">q</a>
-          <a href="settings" class="link" id="btn-settings" data-title="Inställningar">s</a>
-          <a href="" class="link" id="btn-overview" data-title="Överblick">h</a>
-        </li>
+        <li class="item"><a href="in" class="link" id="btn-in" data-title="Addera inkomst">+</a></li>
+        <li class="item"><a href="out" class="link" id="btn-out" data-title="Addera utgift">–</a></li>
+        <li class="item"><a href="salary" class="link" id="btn-salary" data-title="Addera löneuttag">–</a></li>
+        <li class="item"><a href="" class="link" id="btn-book" data-title="Bokföring">=</a></li>
+        <li class="item"><a href="settings" class="link icon" id="btn-settings" data-title="Inställningar">s</a></li>
+        <li class="item"><a href="" class="link icon" id="btn-logout">q</a></li>
       </ul>
     </nav>
 
     <div id="main-content" class="">
 
-      <!-- Overview: -->
-      <article class="content active" id="view-overview">
+      <article class="content active" id="view-book">
           <ul class="column">
             <li class="number-item">
               <strong class="important">Överskott:</strong>
@@ -107,7 +102,7 @@
             <a href="" class="info"></a>
           </div>
           <input name="payout_type" type="hidden" value="0" />
-          <button type="submit" class="btn-add"><i class="icon">c</i> Addera</button>
+          <button type="submit" class="btn-add"><i class="icon">c</i> Addera inbetalning</button>
         </form>
       </article>
 
@@ -134,7 +129,7 @@
             <input type="date" id="inp-out-date" placeholder="<%= @time %>">
             <a href="" class="info"></a>
           </div>
-          <button type="submit" class="btn-add"><i class="icon">c</i> Addera</button>
+          <button type="submit" class="btn-add"><i class="icon">c</i> Addera utgift</button>
         </form>
       </article>
 
@@ -156,13 +151,8 @@
             <input type="date" id="inp-out-date" placeholder="<%= @time %>">
             <a href="" class="info"></a>
           </div>
-          <button type="submit" class="btn-add"><i class="icon">c</i> Addera</button>
+          <button type="submit" class="btn-add"><i class="icon">c</i> Addera löneuttag</button>
         </form>
-      </article>
-
-      <!-- Booking: -->
-      <article class="content" id="view-book">
-
       </article>
 
       <!-- Settings: -->
@@ -173,20 +163,32 @@
       <section class="latest">
         <h4>Senaste <i class="events-all">händelser</i><i class="events-in">inbetalningar</i><i class="events-out">utgifter</i><i class="events-salary">löneuttag</i></h4>
         <ul class="events">
-          <li class="event">
-            <span class="data-sum">1000 </span>
-            <strong class="data-title">Bokköp: The Manual </strong>
-            <i class="data-nr">42</i>
+          <li class="event in">
+            <span class="data-sum">100</span><strong class="data-title">Bokköp: The Manual </strong><i class="data-nr">40</i>
           </li>
-          <li class="event">
-            <span class="data-sum">10 000</span>
-            <strong class="data-title">Bokköp: The Manual </strong>
-            <i class="data-nr">41</i>
+          <li class="event out">
+            <span class="data-sum">100</span><strong class="data-title">Bokköp: The Manual </strong><i class="data-nr">40</i>
           </li>
-          <li class="event">
-            <span class="data-sum">100</span>
-            <strong class="data-title">Bokköp: The Manual </strong>
-            <i class="data-nr">40</i>
+          <li class="event salary">
+            <span class="data-sum">100</span><strong class="data-title">Bokköp: The Manual </strong><i class="data-nr">40</i>
+          </li>
+          <li class="event out">
+            <span class="data-sum">100</span><strong class="data-title">Bokköp: The Manual </strong><i class="data-nr">40</i>
+          </li>
+          <li class="event in">
+            <span class="data-sum">100</span><strong class="data-title">Bokköp: The Manual </strong><i class="data-nr">40</i>
+          </li>
+          <li class="event in">
+            <span class="data-sum">100</span><strong class="data-title">Bokköp: The Manual </strong><i class="data-nr">40</i>
+          </li>
+          <li class="event out">
+            <span class="data-sum">100</span><strong class="data-title">Bokköp: The Manual </strong><i class="data-nr">40</i>
+          </li>
+          <li class="event salary">
+            <span class="data-sum">100</span><strong class="data-title">Bokköp: The Manual </strong><i class="data-nr">40</i>
+          </li>
+          <li class="event salary">
+            <span class="data-sum">100</span><strong class="data-title">Bokköp: The Manual </strong><i class="data-nr">40</i>
           </li>
         </ul>
       </section>
@@ -203,7 +205,6 @@
   <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
   <!-- scripts concatenated and minified via ant build script-->
   <script defer src="/js/libs/jquery.history.min.js"></script>
-  <script defer src="/js/libs/jquery.scrollto.min.js"></script>
   <script defer src="/js/plugins.js"></script>
   <script defer src="/js/script.js"></script>
   <!-- end scripts-->

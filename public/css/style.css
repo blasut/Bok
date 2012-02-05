@@ -80,7 +80,7 @@ body {
 }
 
 .container {
-  width: 960px;
+  width: 780px;
   margin: 0 auto;
   position: relative;
   display: none;
@@ -114,11 +114,12 @@ body {
 }
 label {
   display: block;
-  width: 68px;
+  width: 100px;
   float: left;
-  padding: 12px 22px 0 0;
+  padding-top: 12px;
   font-size: 18px;
   font-weight: bold;
+  box-sizing: border-box;
 }
 input {
   margin-bottom: 15px;
@@ -129,7 +130,8 @@ input {
   cursor: pointer;
   border-radius: 2px;
   border: 3px solid #f1f1f1;
-  width: 245px;
+  width: 250px;
+  box-sizing: border-box;
 }
 input:focus {
   background: #fff;
@@ -143,12 +145,14 @@ button {
   border-radius: 2px;
   float: right;
   border: 0;
-  padding: 15px 92px 14px 43px;
+  padding: 15px 0 14px 48px;
   color: #fff;
   font-weight: bold;
   font-size: 16px;
-  width: auto;
+  width: 230px;
   position: relative;
+  box-sizing: border-box;
+  text-align: left;
 }
 button .icon {
   position: absolute;
@@ -170,21 +174,18 @@ button:active {
 }
 
 #inp-in-title, #inp-out-title, #inp-salary-title {
-  width: 456px;
+  width: 530px;
 }
 #inp-in-sum, #inp-out-sum {
-  width: 168px;
-}
-#view-salary #inp-out-sum {
-  width: 245px;
+  width: 250px;
 }
 #inp-in-vat, #inp-out-vat {
-  width: 157px;
+  width: 183px;
 }
 
 label[for="inp-in-vat"], label[for="inp-out-vat"] {
   margin-left: 20px;
-  width: 55px;
+  width: 77px;
 }
 
 
@@ -250,7 +251,7 @@ h1 {
 /* ===== Basic app structure ===== */
 
 #main-content {
-  width: 580px;
+  width: 630px;
   min-height: 433px;
   padding: 25px 30px 30px;
   float: right;
@@ -267,106 +268,80 @@ h1 {
 .content {
   display: none;
   overflow: hidden;
+  min-height: 186px;
 }
 
 /* ===== Main app navigation ===== */
 
 #app-nav {
-  position: absolute;
-  top: 0; left: 0;
-  width: 290px;
+  position: fixed;
+  width: 90px;
 }
+/* Modernizr fallback */
 
 .item, .subnav {
-  position: relative;
-  height: 90px;
   margin-bottom: 20px;
+}
+.link, .link:visited {
+  width: 70px;
+  height: 70px;
+  display: block;
   border-radius: 2px;
-  background: #222;
-  line-height: 90px;
-}
-.link {
-  display: block;
-  padding-left: 77px;
-  font-size: 25px;
-}
-
-.item .link:before {
-  content: '–';
-  width: 30px;
-  height: 30px;
-  display: block;
-  background: #fff;
-  position: absolute;
-  top: 30px;
-  left: 30px;
-  text-align: center;
-  line-height: 24px;
-  color: #222;
+  line-height: 44px;
+  box-sizing: border-box;
+  border: 5px solid transparent;
+  font-size: 75px;
   font-weight: bold;
-  border-radius: 2px;
-  font-size: 28px;
+  text-align: center;
+  color: #000;
+  background: #fff;
 }
 
-#btn-in:before     { background: #2be218; content:'+'; font-size: 30px; }
-#btn-out:before    { background: #ff1531; }
-#btn-salary:before { background: #157eff; }
-#btn-book:before   { background: #ffd015; content:'='; }
+#btn-in     { background: #2be218; }
+#btn-out    { background: #ff1531; }
+#btn-salary { background: #157eff; }
+#btn-book   { background: #ffd015; }
 
-.in #btn-in         { color: #2be218; }
-.out #btn-out       { color: #ff1531; }
-.salary #btn-salary { color: #157eff; }
-.book #btn-book     { color: #ffd015; }
+.in #btn-in,
+.out #btn-out,
+.salary #btn-salary,
+.book #btn-book { border-color: rgba(0,0,0,.1)  }
 
 /* ===== Subnav ===== */
 
-.subnav {
-  height: 60px;
-  margin-bottom: 0;
-  color: #777;
-  line-height: 60px;
-}
-.subnav .link {
-  width: 30px;
-  height: 30px;
-  margin: 15px 15px 0 0;
-  float: right;
-  border-radius: 2px;
-  background: #f2f2f2;
-  color: #222;
-  padding: 0;
-  line-height: 35px;
-  text-align: center;
-}
-#btn-overview {
+.link.icon {
   display: none;
-}
-#btn-overview.active {
-  display: block;
-}
-#bok {
-  padding-left: 30px;
-  font-size: 25px;
-  font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
-  font-weight: normal;
 }
 
 /* ===== Event list item style ===== */
 
-.event {
-  width: 100%;
+.events {
   overflow: hidden;
-  min-height: 55px;
-  line-height: 55px;
 }
-.event:nth-child(2n+1) {
-  background: #f2f2f2;
+.event {
+  width: auto;
+  min-height: 50px;
+  line-height: 50px;
+  cursor: pointer;
+  border-top: 2px solid #ebebeb;
+  margin-top: -2px;
+}
+.event.in .data-title     { color: #2be218; }
+.event.out .data-title    { color: #ff1531; }
+.event.salary .data-title { color: #157eff; }
+
+.in .out, .in .salary     { display: none; }
+.out .in, .out .salary    { display: none; }
+.salary .out, .salary .in { display: none; }
+
+.event:hover {
+  background:#f2f2f2;
 }
 .data-sum {
   float: left;
   margin: 0 20px;
   width: 100px;
-  border-right: 1px solid #ccc;
+  border-right: 2px solid #ebebeb;
   height: 100%;
 }
 .data-sum:after {
@@ -390,7 +365,7 @@ h1 {
 
 /* ===== App like text selection ===== */
 
-body.app, .transfer {
+#app, .transfer {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -398,7 +373,7 @@ body.app, .transfer {
   user-select: none;
 }
 
-.content *[id*="data-"], .content *[class*="data-"] {
+#main-content *[id*="data-"], #main-content *[class*="data-"] {
   -webkit-user-select: text;
   -moz-user-select: text;
   -ms-user-select: text;
@@ -411,34 +386,34 @@ body.app, .transfer {
    App content views
    ========================================================= */
 
-/* ===== 1. Overview ============= */
+/* ===== 1. Booking ============= */
 
-#view-overview .number-item {
+.number-item {
   float: left;
   width: 50%;
 }
 
-#view-overview .number-item:first-child {
+.number-item:first-child {
   float: none;
   width: auto;
   margin-bottom: 10px;
 }
 
-#view-overview strong {
+#view-book strong {
   display: block;
   font-size: 15px;
 }
 
-#view-overview .important {
+#view-book .important {
   font-size: 18px;
 }
 
 
-#view-overview .number {
+.number {
   display: block;
   font-size: 28px;
 }
-#view-overview .number-result {
+.number-result {
   display: block;
   font-size: 68px;
 }
@@ -447,12 +422,9 @@ body.app, .transfer {
 
 .latest {
   clear: both;
-  margin-top: 20px;
+  margin-top: 40px;
   border-top: 3px solid #ddd;
-  position: absolute;
-  width: 580px;
-  left: 30px;
-  bottom: 30px;
+  width: 100%;
 }
 
 .latest h4 {
