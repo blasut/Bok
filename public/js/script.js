@@ -10,6 +10,7 @@ view.site = $('#site');
 view.app = $('#app');
 
 var elements = {};
+elements.shinker = $('#shinker');
 // cache random selectors
 
 
@@ -36,6 +37,11 @@ $(function() {
       }
     });
   });
+
+    $('.shrink').keyup(function() {
+        var width = $(this).width();
+        shrinkToFill(this, 18, width);
+    })
 
 });
 
@@ -100,8 +106,29 @@ $(function() {
 })(window);
 
 
+function shrinkToFill(input, fontSize, width) {
+  var $input = $(input),
+    txt = $input.val(),
+    size = fontSize + "px",
+    textWidth = elements.shinker.html(txt).width();
+
+  if (textWidth > width) {
+    fontSize = fontSize * width / textWidth * .9;
+    size = fontSize + "px";
+
+    // minimum font size
+    if (fontSize > 12) {
+      $input.css({fontSize:size});
+    }
+  } else {
+    $input.css({fontSize:size});
+  }
+}
+
+
 function getData() {
 }
+
 
 window.addEventListener("popstate", function(e) {
   console.log("popstate!");

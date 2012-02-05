@@ -80,7 +80,7 @@ body {
 }
 
 .container {
-  width: 780px;
+  width: 770px;
   margin: 0 auto;
   position: relative;
   display: none;
@@ -123,6 +123,7 @@ label {
   box-sizing: border-box;
 }
 input {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin-bottom: 15px;
   padding: 10px 35px 10px 14px;
   font-size: 18px;
@@ -132,8 +133,23 @@ input {
   border-radius: 2px;
   border: 3px solid #f1f1f1;
   width: 240px;
+  height: 48px;
   box-sizing: border-box;
 }
+/* For auto shrinking text in inputs */
+#shinker {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  display: none;
+}
+.shrink {
+  -webkit-transition: font-size .2s ease;
+     -moz-transition: font-size .2s ease;
+      -ms-transition: font-size .2s ease;
+       -o-transition: font-size .2s ease;
+          transition: font-size .2s ease;
+}
+
 input:focus {
   background: #fff;
   color: #222;
@@ -269,22 +285,24 @@ h1 {
 #main-content {
   width: 630px;
   min-height: 433px;
-  padding: 25px 30px 30px;
+  padding: 30px;
   float: right;
-  border-top: 12px solid #ffd015;
+  /* border-top: 12px solid #ffd015; */
   border-radius: 2px;
   background: #fff;
   position: relative;
 }
+/*
 .in #main-content     { border-color: #2be218; }
 .out #main-content    { border-color: #ff1531; }
 .salary #main-content { border-color: #157eff; }
 .book #main-content   { border-color: #ffd015; }
+*/
 
 .content {
   display: none;
   overflow: hidden;
-  min-height: 186px;
+  min-height: 189px;
 }
 
 /* ===== Main app navigation ===== */
@@ -295,22 +313,21 @@ h1 {
 }
 /* Modernizr fallback */
 
-.item, .subnav {
+.item {
   margin-bottom: 20px;
 }
 .link, .link:visited {
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
   display: block;
   border-radius: 2px;
-  line-height: 44px;
+  line-height: 39px;
   box-sizing: border-box;
-  border: 5px solid transparent;
-  font-size: 75px;
+  border: 4px solid transparent;
+  font-size: 48px;
   font-weight: bold;
   text-align: center;
-  color: #000;
-  background: #fff;
+  color: rgba(0,0,0,.7);
 }
 
 #btn-in     { background: #2be218; }

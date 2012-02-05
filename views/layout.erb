@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="/css/style.css">
   <link href="//get.pictos.cc/fonts/583/4" rel="stylesheet" type="text/css">
   <!-- end CSS-->
-  <script src="js/libs/modernizr-2.0.6.min.js"></script>
+  <!--<script src="js/libs/modernizr-2.0.6.min.js"></script>-->
 </head>
 <body class="book">
 
@@ -30,7 +30,7 @@
         <form action="/login" method="post">
           <div class="wrap-inp">
             <label for="inp-email">E-post:</label>
-            <input type="email" id="inp-email" name="email" value="test@example.com">
+            <input type="email" id="inp-email" name="email" class="shrink" value="test@example.com">
           </div>
           <div class="wrap-inp">
             <label for="inp-email">Lösenord:</label>
@@ -83,7 +83,7 @@
         <form action="/payments" method="post">
           <div class="wrap-inp">
             <label for="inp-in-title">Titel (kund):</label>
-            <input type="text" id="inp-in-title" name="title" placeholder="Faktura 20: Sajt uppdatering">
+            <input type="text" id="inp-in-title" name="title" class="shrink" placeholder="Faktura 20: Arkitektur AB">
             <a href="" class="info">i</a>
           </div>
           <div class="wrap-inp">
@@ -111,7 +111,7 @@
         <form action="">
           <div class="wrap-inp">
             <label for="inp-out-title">Titel:</label>
-            <input type="text" id="inp-out-title" placeholder="Bok: The Manual">
+            <input type="text" id="inp-out-title" class="shrink" placeholder="Bokköp: The Manual">
             <a href="" class="info">i</a>
           </div>
           <div class="wrap-inp">
@@ -138,7 +138,7 @@
         <form action="">
           <div class="wrap-inp">
             <label for="inp-out-title">Titel:</label>
-            <input type="text" id="inp-out-title" placeholder="Lön: början av februari">
+            <input type="text" id="inp-out-title" class="shrink" placeholder="Lön: början av februari">
             <a href="" class="info">i</a>
           </div>
           <div class="wrap-inp">
@@ -199,7 +199,8 @@
   <!-- View switcher for development: -->
   <a href="app" class="transfer" id="view-app">t</a>
   <a href="" class="transfer" id="view-site">t</a>
-
+  <!-- For shrinking input text: -->
+  <span id="shinker"></span>
 
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
