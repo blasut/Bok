@@ -137,7 +137,7 @@ input {
   box-sizing: border-box;
 }
 /* For auto shrinking text in inputs */
-#shinker {
+#shrinker {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 18px;
   display: none;
@@ -406,6 +406,7 @@ h1 {
   user-select: none;
 }
 
+/* funkar inte i FF */
 #main-content *[id*="data-"], #main-content *[class*="data-"] {
   -webkit-user-select: text;
   -moz-user-select: text;
@@ -413,6 +414,7 @@ h1 {
   -o-user-select: text;
   user-select: text;
 }
+
 
 
 /* ==========================================================

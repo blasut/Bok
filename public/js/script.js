@@ -10,7 +10,7 @@ view.site = $('#site');
 view.app = $('#app');
 
 var elements = {};
-elements.shinker = $('#shinker');
+elements.shrinker = $('#shrinker');
 // cache random selectors
 
 
@@ -38,12 +38,45 @@ $(function() {
     });
   });
 
-    $('.shrink').keyup(function() {
-        var width = $(this).width();
-        shrinkToFill(this, 18, width);
-    })
+  $('.shrink').keydown(function() {
+    var width = $(this).width();
+    shrinkToFill(this, 18, width);
+  })
+
+  /*
+  $(':not(input)').keydown(function(e){
+    var links = $('.link');
+
+    if (e.keyCode == 74 ||
+      e.keyCode ==  75  ||
+      e.keyCode == 76   ||
+      e.keyCode == 186  ||
+      e.keyCode == 83   ||
+      e.keyCode == 81) {
+
+      for (var i = links.length - 1; i >= 0; i--) {
+        if($(links[i]).data('key') == e.keyCode)
+          $(links[i]).click();
+      };
+
+      $('input').keydown(function(e) {
+        e.stopPropagation();
+      });
+    }
+
+  });
+
+  $(window).keypress(function(e) {
+    if (!(e.which == 115 && e.ctrlKey) && !(e.which == 19)) return true;
+    e.preventDefault();
+    return false;
+  });
+  */
+
+
 
 });
+
 
 
 (function(window,undefined){
@@ -69,8 +102,8 @@ $(function() {
       if (contentId == 0) {
         var contentId = 'book';
       }
-      console.log(contentId);
-      console.log(contentTitle);
+      //console.log(contentId);
+      //console.log(contentTitle);
 
       // view.body.attr('class', '');
       // view.body.attr('class', contentId);
@@ -97,10 +130,10 @@ $(function() {
     });
 
     function changeContent(id) {
-      console.log("Change content");
+      //console.log("Change content");
       $('.content').removeClass('active');
       $('#view-' + id).addClass('active');
-      console.log('#view-' + id);
+      $('#view-' + id + ' .shrink').focus();
     }
 
 })(window);
@@ -110,7 +143,7 @@ function shrinkToFill(input, fontSize, width) {
   var $input = $(input),
     txt = $input.val(),
     size = fontSize + "px",
-    textWidth = elements.shinker.html(txt).width();
+    textWidth = elements.shrinker.html(txt).width();
 
   if (textWidth > width) {
     fontSize = fontSize * width / textWidth * .9;
