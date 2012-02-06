@@ -1,7 +1,38 @@
 # Bok
 Bokförings app: enkelt, snabbt, tillgängligt, modernt, snyggt
 
-### To-do efter hackaton:
+
+
+## UI TO-DO efter research
+#### Inkomst:
+- Byta namn på inkomst till intäkt? Passar nog bättre tillsammans med "utgift"
+- Ta bort "(kund)" från inkomst titel-labeln (finns i placeholdern)
+ - Placeholder: "Faktura 20: Kundnamn"
+- Lägga till fyra alternativ för momsen: 25%, 12%, 6%, 0%
+
+#### Utgift:
+- Lägga till fyra alternativ för momsen: 25%, 12%, 6%, 0%
+
+#### Löneuttag:
+- Byta namn till eget uttag? nackdelen är att vi måste fråga om moms då, PGA att egna uttag kan va momsfira (typ hälsostuff)
+ - Tycker inte vi byter namn, ska man bokföra något sånt kan det göras som utgift 
+- När man skriver summan, visa ett "Du får XX kr i fickan"
+
+#### Setup/settings:
+- Vi borde nog fråga om hur mycket skatt man ska pröjsa
+ - Botta mot den [här?]http://www.hurmycketskatt.se/
+ - ganska stor skillnad mellan skatten i [olika städer]http://www.hurmycketskatt.se/InkomstSkatt/toplist
+- Bestämma standard moms
+
+#### Misc:
+- Större list-händelser som visar datum, pris, moms, pris med moms
+- Antingen lägga till ännu inputmöjlighet (noo) för prellskatt eller sätta den som en automatisk utgift.
+- Göra egna placeholders för att garantera att syns och inte försvinner onfocus
+- lägg till "(ex moms)" i summa placeholder
+
+
+
+## To-do efter hackaton:
 - Login och registrering
  - checkbox: dubbelkolla lösenord
  - kryptera lösenorden
@@ -43,8 +74,9 @@ Bokförings app: enkelt, snabbt, tillgängligt, modernt, snyggt
 - payment_type : 0 = in / 1 = ut
 - ver_id
 
+
+
 ## Features
-----------
 **Query interface:**
 Keywords
 
