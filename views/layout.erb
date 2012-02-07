@@ -95,79 +95,80 @@
             <label for="inp-in-vat">Moms %:</label>
             <ul class="vat-list">
               <li class="vat checked">25
-                <input type="radio" checked>
+                <input type="radio" checked name="vat" value="25">
               </li>
               <li class="vat">12
-                <input type="radio">
+                <input type="radio" name="vat" value="6">
               </li>
               <li class="vat">6
-                <input type="radio">
+                <input type="radio" name="vat" value="6">
               </li>
               <li class="vat">0
-                <input type="radio">
+                <input type="radio" name="vat" value="0">
               </li>
             </ul>
           </div>
           <div class="wrap-inp">
             <label for="inp-in-date">Datum:</label>
-            <input type="text" id="inp-in-date" class="date" placeholder="<%= @time %>">
+            <input type="text" id="inp-in-date" class="date" placeholder="<%= @time %>" name="date">
             <i class="info">i</i>
           </div>
-          <input name="payout_type" type="hidden" value="0" />
+          <input name="payment_type" type="hidden" value="ingoing" />
           <button type="submit" class="btn-add"><i class="icon">c</i> Spara intäkt</button>
         </form>
       </article>
 
       <!-- Payout: -->
       <article class="content" id="view-out">
-        <form action="">
+        <form action="/payments" method="post">
           <div class="wrap-inp">
             <label for="inp-out-title">Titel:</label>
-            <input type="text" id="inp-out-title" class="shrink" placeholder="Bokköp: The Manual">
+            <input type="text" id="inp-out-title" class="shrink" placeholder="Bokköp: The Manual" name="title">
             <i class="info">i</i>
           </div>
           <div class="wrap-inp">
             <label for="inp-out-sum">Belopp:</label>
-            <input type="text" id="inp-out-sum" placeholder="290 (ex moms)">
+            <input type="text" id="inp-out-sum" placeholder="290 (ex moms)" name="sum">
             <i class="info">i</i>
           </div>
           <div class="wrap-inp">
             <label for="inp-in-vat">Moms %:</label>
             <ul class="vat-list">
               <li class="vat checked">25
-                <input type="radio" checked>
+                <input type="radio" checked name="vat" value="25">
               </li>
               <li class="vat">12
-                <input type="radio">
+                <input type="radio" name="vat" value="6">
               </li>
               <li class="vat">6
-                <input type="radio">
+                <input type="radio" name="vat" value="6">
               </li>
               <li class="vat">0
-                <input type="radio">
+                <input type="radio" name="vat" value="0">
               </li>
             </ul>
           </div>
           <div class="wrap-inp">
             <label for="inp-out-date">Datum:</label>
-            <input type="text" id="inp-out-date" class="date" placeholder="<%= @time %>">
+            <input type="text" id="inp-out-date" class="date" placeholder="<%= @time %>" name="date">
             <i class="info">i</i>
           </div>
+          <input name="payment_type" type="hidden" value="outgoing" />
           <button type="submit" class="btn-add"><i class="icon">c</i> Spara utgift</button>
         </form>
       </article>
 
       <!-- Salary: -->
       <article class="content" id="view-salary">
-        <form action="">
+        <form action="/payments" method="post">
           <div class="wrap-inp">
             <label for="inp-salary-title">Titel:</label>
-            <input type="text" id="inp-salary-title" class="shrink" placeholder="Lön: början av februari">
+            <input type="text" id="inp-salary-title" class="shrink" placeholder="Lön: början av februari" name="title">
             <i class="info">i</i>
           </div>
           <div class="wrap-inp">
             <label for="inp-salary-sum">Belopp:</label>
-            <input type="text" id="inp-salary-sum" placeholder="1000 (ex moms)">
+            <input type="text" id="inp-salary-sum" placeholder="1000 (ex moms)" name="sum">
             <i class="info">i</i>
           </div>
           <div class="wrap-inp">
@@ -175,10 +176,10 @@
           </div>
           <div class="wrap-inp">
             <label for="inp-salary-date">Datum:</label>
-            <input type="text" id="inp-salary-date" class="date" placeholder="<%= @time %>">
+            <input type="text" id="inp-salary-date" class="date" placeholder="<%= @time %>" name="date">
             <i class="info">i</i>
-            <div class="lw-dp" style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; left: 545px; top: 231px; "><div class="lw-dp-toolbar"><div class="lw-dp-previous">◄</div><div class="lw-dp-next">►</div><div class="lw-dp-month">Januari, 2012</div></div><ul class="lw-dp-dows"><li>tis</li><li>ons</li><li>tos</li><li>fre</li><li>lör</li><li>sön</li><li>mån</li></ul><div><ul class="lw-dp-week lw-dp-firstweek"><li class="lw-dp-neighbour-month-day">26</li><li class="lw-dp-neighbour-month-day">27</li><li class="lw-dp-neighbour-month-day">28</li><li class="lw-dp-neighbour-month-day">29</li><li class="lw-dp-neighbour-month-day">30</li><li class="lw-dp-neighbour-month-day lw-dp-weekend">31</li><li class="lw-dp-weekend lw-dp-week-last-column">1</li></ul><ul class="lw-dp-week"><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li class="lw-dp-weekend">7</li><li class="lw-dp-weekend lw-dp-week-last-column">8</li></ul><ul class="lw-dp-week"><li>9</li><li>10</li><li>11</li><li>12</li><li class="lw-dp-active-day">13</li><li class="lw-dp-weekend">14</li><li class="lw-dp-weekend lw-dp-week-last-column">15</li></ul><ul class="lw-dp-week"><li>16</li><li>17</li><li>18</li><li>19</li><li>20</li><li class="lw-dp-weekend">21</li><li class="lw-dp-weekend lw-dp-week-last-column">22</li></ul><ul class="lw-dp-week"><li>23</li><li>24</li><li>25</li><li>26</li><li>27</li><li class="lw-dp-weekend">28</li><li class="lw-dp-weekend lw-dp-week-last-column">29</li></ul><ul class="lw-dp-week lw-dp-lastweek"><li>30</li><li>31</li><li class="lw-dp-neighbour-month-day">1</li><li class="lw-dp-neighbour-month-day">2</li><li class="lw-dp-neighbour-month-day">3</li><li class="lw-dp-neighbour-month-day lw-dp-weekend">4</li><li class="lw-dp-neighbour-month-day lw-dp-weekend lw-dp-week-last-column">5</li></ul></div></div>
           </div>
+          <input name="payment_type" type="hidden" value="salary" />
           <button type="submit" class="btn-add"><i class="icon">c</i> Spara löneuttag</button>
         </form>
       </article>

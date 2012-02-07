@@ -38,7 +38,7 @@ $(function() {
 
       if(data == "true_login") {
         getData();
-        $('#login').hide();
+        $('#site').hide();
         $('.btn-logout').removeClass('hidden');
         view.app.fadeIn().show();
       } else if(data == "false_login") {
