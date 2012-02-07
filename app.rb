@@ -59,7 +59,7 @@ class MyApp < Sinatra::Base
     else
       session[:logged_in] = true
       session[:current_user_id] = user.id
-      "true"
+      "true_login"
     end
     #binding.pry
   end
