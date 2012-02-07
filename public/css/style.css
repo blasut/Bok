@@ -107,7 +107,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* ===== Form elements ===== */
+/* ===== Form elements: label & input ===== */
 
 .wrap-inp {
   float: left;
@@ -115,14 +115,14 @@ body {
 }
 label {
   display: block;
-  width: 110px;
+  width: 100px;
   float: left;
   padding-top: 12px;
   font-size: 18px;
   font-weight: bold;
   box-sizing: border-box;
 }
-input {
+input, .vat {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin-bottom: 15px;
   padding: 10px 35px 10px 14px;
@@ -132,10 +132,20 @@ input {
   cursor: pointer;
   border-radius: 2px;
   border: 3px solid #f1f1f1;
-  width: 240px;
+  width: 230px;
   height: 48px;
   box-sizing: border-box;
 }
+input:focus, .vat.checked {
+  background: #fff;
+  color: #222;
+  outline: 0;
+  cursor: text;
+  border-color: #ccc;
+}
+
+/* ===== Form elements: For auto shrinking text in inputs ===== */
+
 /* For auto shrinking text in inputs */
 #shrinker {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -150,19 +160,14 @@ input {
           transition: font-size .2s ease;
 }
 
-input:focus {
-  background: #fff;
-  color: #222;
-  outline: 0;
-  cursor: text;
-  border-color: #ccc;
-}
+/* ===== Form elements: Buttons ===== */
+
 button {
   background: #ffd015;
   border-radius: 2px;
   float: right;
   border: 0;
-  padding: 15px 0 14px 48px;
+  padding: 12px 0 10px 45px;
   color: #fff;
   font-weight: bold;
   font-size: 16px;
@@ -170,40 +175,30 @@ button {
   position: relative;
   box-sizing: border-box;
   text-align: left;
+  border: 4px solid transparent;
 }
 button .icon {
   position: absolute;
-  top: 14px;
+  top: 11px;
   left: 15px;
   font-size: 26px;
 }
-
 .in button     { background: #2be218; }
 .out button    { background: #ff1531; }
 .salary button { background: #157eff; }
 .book button   { background: #ffd015; }
 
-button:hover {
+button:hover, button:focus {
   cursor: pointer;
+  border-color: rgba(0,0,0,.1);
+  outline: 0;
 }
 button:active {
   opacity: 0.8;
 }
 
-#inp-in-title, #inp-out-title, #inp-salary-title {
-  width: 520px;
-}
-#inp-in-sum, #inp-out-sum {
-  width: 240px;
-}
-#inp-in-vat, #inp-out-vat {
-  width: 183px;
-}
 
-label[for="inp-in-vat"], label[for="inp-out-vat"] {
-  margin-left: 20px;
-  width: 77px;
-}
+/* ===== Form elements: Info buttons ===== */
 
 .info, .info:visited {
   position: absolute;
@@ -211,14 +206,62 @@ label[for="inp-in-vat"], label[for="inp-out-vat"] {
   right: 11px;
   color: #ccc;
   font-size: 27px;
+  cursor: pointer;
 }
-.info:hover, .info:focus { color: #999; }
-.info:active {
+.info:hover, .info:focus, .lw-dp-previous:hover, .lw-dp-next:hover { color: #999; }
+.info:active, .lw-dp-previous:active, .lw-dp-next:active {
   -webkit-transform: scale(.9);
      -moz-transform: scale(.9);
       -ms-transform: scale(.9);
        -o-transform: scale(.9);
           transform: scale(.9);
+}
+
+
+/* ===== Form elements: Vat inputs ===== */
+
+.vat-list {
+  float: right;
+}
+.vat-list input {
+  display: none;
+  visibility: hidden;
+}
+.vat {
+  float: left;
+  width: 40px;
+  padding: 7px 0;
+  margin: 3px 0 0 7px;
+  height: auto;
+  text-align: center;
+  font-size: 16px;
+}
+.vat.checked {
+  background: #999;
+  border-color: #999;
+  color: #fff;
+}
+
+/* ===== Form elements: Vat inputs ===== */
+
+#salary-after {
+  margin: 13px 0 0 20px;
+}
+
+/* ===== Form elements: Content specific styles ===== */
+
+#inp-in-title, #inp-out-title, #inp-salary-title {
+  width: 530px;
+}
+#inp-in-sum, #inp-out-sum {
+  width: 230px;
+}
+#inp-in-vat, #inp-out-vat {
+  width: 183px;
+}
+label[for="inp-in-vat"], label[for="inp-out-vat"] {
+  margin-left: 20px;
+  width: 92px;
 }
 
 
@@ -533,6 +576,105 @@ h4 i { display: none; }
 .in h4 .events-in,
 .out h4 .events-out,
 .salary h4 .events-salary { display: inline; font-style: normal;}
+
+
+
+
+
+/* ==========================================================
+   Date picker
+   ========================================================= */
+
+
+
+.lw-dp {
+  position: absolute;
+  z-index: 3;
+  overflow: hidden;
+  cursor: default;
+  width: 224px;
+  background: #fff;
+  border: 3px solid #ccc;
+  margin-top: -3px;
+  border-radius: 2px;
+  text-align: center;
+}
+.lw-dp-hidden {
+  display: none;
+}
+.lw-dp-toolbar {
+  overflow: hidden;
+  font-size: 14px;
+  padding: 9px 0 8px;
+}
+.lw-dp-month {
+  display: inline-block;
+}
+.lw-dp-previous, .lw-dp-next {
+  position: absolute;
+  top: 9px;
+  left: 4px;
+  width: 19px;
+  height: 18px;
+  color: #ccc;
+  cursor: pointer;
+}
+.lw-dp-next {
+  left: initial;
+  right: 4px;
+}
+.lw-dp-dows {
+  overflow: hidden;
+  padding: 7px 0;
+  background: #ebebeb;
+}
+
+.lw-dp-dows li, .lw-dp-week li {
+  display: block;
+  float: left;
+  padding: 0;
+  margin: 0;
+  color: #797979;
+  font-size: 12px;
+}
+.lw-dp-dows li {
+  font-size: 12px;
+  width: 32px;
+}
+.lw-dp-week {
+  overflow: hidden;
+}
+.lw-dp-week li {
+  width: 32px;
+  height: 23px;
+  line-height: 24px;
+  cursor: pointer;
+  color: #444;
+}
+.lw-dp-week li:hover {
+  background: #ccc;
+  color:#222;
+  border-radius: 2px;
+}
+.lw-dp-week .lw-dp-neighbour-month-day {
+  color: #cbcbcb;
+}
+.lw-dp-week .lw-dp-active-day, .lw-dp-week .lw-dp-active-day:hover{
+  color: #fff;
+  border-radius: 2px;
+}
+
+.in .lw-dp-week .lw-dp-active-day, .salary .lw-dp-week .lw-dp-active-day:hover{
+  background: #2be218;
+}
+.out .lw-dp-week .lw-dp-active-day, .salary .lw-dp-week .lw-dp-active-day:hover{
+  background: #ff1531;
+}
+.salary .lw-dp-week .lw-dp-active-day, .salary .lw-dp-week .lw-dp-active-day:hover{
+  background: #157eff;
+}
+
+
 
 
 

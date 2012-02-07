@@ -46,7 +46,7 @@
   <div class="container clearfix" id="app">
     <nav>
       <ul id="app-nav">
-        <li class="item"><a href="in" class="link" id="btn-in" data-title="Inkomst" data-key="74">+</a></li>
+        <li class="item"><a href="in" class="link" id="btn-in" data-title="Intäkt" data-key="74">+</a></li>
         <li class="item"><a href="out" class="link" id="btn-out" data-title="Utgift" data-key="75">–</a></li>
         <li class="item"><a href="salary" class="link" id="btn-salary" data-title="Löneuttag" data-key="76">–</a></li>
         <li class="item"><a href="" class="link" id="btn-book" data-title="Bokföring" data-key="186">=</a></li>
@@ -64,7 +64,7 @@
               <span class="number number-result" id="data-surplus">147 250</span>
             </li>
             <li class="number-item">
-              <strong>Inkomster:</strong>
+              <strong>Intäkter:</strong>
               <span class="number" id="data-in">187 250</span>
             </li>
             <li class="number-item">
@@ -82,27 +82,39 @@
       <article class="content" id="view-in">
         <form action="/payments" method="post">
           <div class="wrap-inp">
-            <label for="inp-in-title">Titel (kund):</label>
-            <input type="text" id="inp-in-title" name="title" class="shrink" placeholder="Faktura 20: Arkitektur AB">
-            <a href="" class="info">i</a>
+            <label for="inp-in-title">Titel:</label>
+            <input type="text" id="inp-in-title" name="title" class="shrink" placeholder="Faktura 20: Kundnamn">
+            <i class="info">i</i>
           </div>
           <div class="wrap-inp">
-            <label for="inp-in-sum">Summa:</label>
-            <input type="text" id="inp-in-sum" name="sum" placeholder="5 200">
-            <a href="" class="info">i</a>
+            <label for="inp-in-sum">Belopp:</label>
+            <input type="text" id="inp-in-sum" name="sum" placeholder="5200 (ex moms)">
+            <i class="info">i</i>
           </div>
           <div class="wrap-inp">
-            <label for="inp-in-vat">Moms:</label>
-            <input type="text" id="inp-in-vat" name="vat" placeholder="25%">
-            <a href="" class="info">i</a>
+            <label for="inp-in-vat">Moms %:</label>
+            <ul class="vat-list">
+              <li class="vat checked">25
+                <input type="radio" checked>
+              </li>
+              <li class="vat">12
+                <input type="radio">
+              </li>
+              <li class="vat">6
+                <input type="radio">
+              </li>
+              <li class="vat">0
+                <input type="radio">
+              </li>
+            </ul>
           </div>
           <div class="wrap-inp">
             <label for="inp-in-date">Datum:</label>
-            <input type="date" id="inp-in-date" date="date" name="date" placeholder="<%= @time %>">
-            <a href="" class="info">i</a>
+            <input type="text" id="inp-in-date" class="date" placeholder="<%= @time %>">
+            <i class="info">i</i>
           </div>
           <input name="payout_type" type="hidden" value="0" />
-          <button type="submit" class="btn-add"><i class="icon">c</i> Spara inbetalning</button>
+          <button type="submit" class="btn-add"><i class="icon">c</i> Spara intäkt</button>
         </form>
       </article>
 
@@ -112,22 +124,34 @@
           <div class="wrap-inp">
             <label for="inp-out-title">Titel:</label>
             <input type="text" id="inp-out-title" class="shrink" placeholder="Bokköp: The Manual">
-            <a href="" class="info">i</a>
+            <i class="info">i</i>
           </div>
           <div class="wrap-inp">
-            <label for="inp-out-sum">Summa:</label>
-            <input type="text" id="inp-out-sum" placeholder="290">
-            <a href="" class="info">i</a>
+            <label for="inp-out-sum">Belopp:</label>
+            <input type="text" id="inp-out-sum" placeholder="290 (ex moms)">
+            <i class="info">i</i>
           </div>
           <div class="wrap-inp">
-            <label for="inp-out-vat">Moms:</label>
-            <input type="text" id="inp-out-vat" placeholder="25%">
-            <a href="" class="info">i</a>
+            <label for="inp-in-vat">Moms %:</label>
+            <ul class="vat-list">
+              <li class="vat checked">25
+                <input type="radio" checked>
+              </li>
+              <li class="vat">12
+                <input type="radio">
+              </li>
+              <li class="vat">6
+                <input type="radio">
+              </li>
+              <li class="vat">0
+                <input type="radio">
+              </li>
+            </ul>
           </div>
           <div class="wrap-inp">
             <label for="inp-out-date">Datum:</label>
-            <input type="date" id="inp-out-date" placeholder="<%= @time %>">
-            <a href="" class="info">i</a>
+            <input type="text" id="inp-out-date" class="date" placeholder="<%= @time %>">
+            <i class="info">i</i>
           </div>
           <button type="submit" class="btn-add"><i class="icon">c</i> Spara utgift</button>
         </form>
@@ -137,19 +161,23 @@
       <article class="content" id="view-salary">
         <form action="">
           <div class="wrap-inp">
-            <label for="inp-out-title">Titel:</label>
-            <input type="text" id="inp-out-title" class="shrink" placeholder="Lön: början av februari">
-            <a href="" class="info">i</a>
+            <label for="inp-salary-title">Titel:</label>
+            <input type="text" id="inp-salary-title" class="shrink" placeholder="Lön: början av februari">
+            <i class="info">i</i>
           </div>
           <div class="wrap-inp">
-            <label for="inp-out-sum">Summa:</label>
-            <input type="text" id="inp-out-sum" placeholder="10 000">
-            <a href="" class="info">i</a>
+            <label for="inp-salary-sum">Belopp:</label>
+            <input type="text" id="inp-salary-sum" placeholder="1000 (ex moms)">
+            <i class="info">i</i>
           </div>
           <div class="wrap-inp">
-            <label for="inp-out-date">Datum:</label>
-            <input type="date" id="inp-out-date" placeholder="<%= @time %>">
-            <a href="" class="info">i</a>
+            <p id="salary-after">I fickan efter skatt: <ins></ins></p>
+          </div>
+          <div class="wrap-inp">
+            <label for="inp-salary-date">Datum:</label>
+            <input type="text" id="inp-salary-date" class="date" placeholder="<%= @time %>">
+            <i class="info">i</i>
+            <div class="lw-dp" style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; left: 545px; top: 231px; "><div class="lw-dp-toolbar"><div class="lw-dp-previous">◄</div><div class="lw-dp-next">►</div><div class="lw-dp-month">Januari, 2012</div></div><ul class="lw-dp-dows"><li>tis</li><li>ons</li><li>tos</li><li>fre</li><li>lör</li><li>sön</li><li>mån</li></ul><div><ul class="lw-dp-week lw-dp-firstweek"><li class="lw-dp-neighbour-month-day">26</li><li class="lw-dp-neighbour-month-day">27</li><li class="lw-dp-neighbour-month-day">28</li><li class="lw-dp-neighbour-month-day">29</li><li class="lw-dp-neighbour-month-day">30</li><li class="lw-dp-neighbour-month-day lw-dp-weekend">31</li><li class="lw-dp-weekend lw-dp-week-last-column">1</li></ul><ul class="lw-dp-week"><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li class="lw-dp-weekend">7</li><li class="lw-dp-weekend lw-dp-week-last-column">8</li></ul><ul class="lw-dp-week"><li>9</li><li>10</li><li>11</li><li>12</li><li class="lw-dp-active-day">13</li><li class="lw-dp-weekend">14</li><li class="lw-dp-weekend lw-dp-week-last-column">15</li></ul><ul class="lw-dp-week"><li>16</li><li>17</li><li>18</li><li>19</li><li>20</li><li class="lw-dp-weekend">21</li><li class="lw-dp-weekend lw-dp-week-last-column">22</li></ul><ul class="lw-dp-week"><li>23</li><li>24</li><li>25</li><li>26</li><li>27</li><li class="lw-dp-weekend">28</li><li class="lw-dp-weekend lw-dp-week-last-column">29</li></ul><ul class="lw-dp-week lw-dp-lastweek"><li>30</li><li>31</li><li class="lw-dp-neighbour-month-day">1</li><li class="lw-dp-neighbour-month-day">2</li><li class="lw-dp-neighbour-month-day">3</li><li class="lw-dp-neighbour-month-day lw-dp-weekend">4</li><li class="lw-dp-neighbour-month-day lw-dp-weekend lw-dp-week-last-column">5</li></ul></div></div>
           </div>
           <button type="submit" class="btn-add"><i class="icon">c</i> Spara löneuttag</button>
         </form>
@@ -157,11 +185,45 @@
 
       <!-- Settings: -->
       <article class="content" id="view-settings">
-
+          <h4>Förvald moms %:</h4>
+          <div class="wrap-inp">
+            <label for="inp-in-vat">För intäkter:</label>
+            <ul class="vat-list">
+              <li class="vat checked">25
+                <input type="radio" checked>
+              </li>
+              <li class="vat">12
+                <input type="radio">
+              </li>
+              <li class="vat">6
+                <input type="radio">
+              </li>
+              <li class="vat">0
+                <input type="radio">
+              </li>
+            </ul>
+          </div>
+          <div class="wrap-inp">
+            <label for="inp-in-vat">För utgifter:</label>
+            <ul class="vat-list">
+              <li class="vat checked">25
+                <input type="radio" checked>
+              </li>
+              <li class="vat">12
+                <input type="radio">
+              </li>
+              <li class="vat">6
+                <input type="radio">
+              </li>
+              <li class="vat">0
+                <input type="radio">
+              </li>
+            </ul>
+          </div>
       </article>
 
       <section class="latest">
-        <h4>Senaste <i class="events-all">händelser</i><i class="events-in">inbetalningar</i><i class="events-out">utgifter</i><i class="events-salary">löneuttag</i></h4>
+        <h4>Senaste <i class="events-all">händelser</i><i class="events-in">intäkter</i><i class="events-out">utgifter</i><i class="events-salary">löneuttag</i></h4>
         <ul class="events">
           <li class="event in">
             <span class="data-sum">100</span><strong class="data-title">Bokköp: The Manual </strong><i class="data-nr">40</i>
