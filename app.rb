@@ -1,6 +1,5 @@
 require 'sinatra/base'
 require_relative 'db/models'
-require 'pry'
 
 class MyApp < Sinatra::Base
   enable :logging
@@ -52,7 +51,6 @@ class MyApp < Sinatra::Base
     logger.info "posting to login"
     user = User.register(params)
 
-    #binding.pry
     logger.info "user: #{user}"
     logger.info "user.nil?: #{user.nil?}"
 
@@ -63,7 +61,6 @@ class MyApp < Sinatra::Base
       session[:current_user_id] = user.id
       "true_login"
     end
-    #binding.pry
   end
 
   get '/logout' do
