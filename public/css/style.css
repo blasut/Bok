@@ -427,12 +427,12 @@ h1 {
   overflow: hidden;
 }
 .event {
-  width: auto;
-  min-height: 50px;
-  line-height: 50px;
-  cursor: pointer;
+  position: relative;
   border-top: 2px solid #ebebeb;
   margin-top: -2px;
+  line-height: 20px;
+  clear: both;
+  overflow: hidden;
 }
 .event.in .data-title     { color: #2be218; }
 .event.out .data-title    { color: #ff1531; }
@@ -442,34 +442,51 @@ h1 {
 .out .in, .out .salary    { display: none; }
 .salary .out, .salary .in { display: none; }
 
-.event:hover {
-  background:#f2f2f2;
-}
-.data-sum {
+
+.sum {
   float: left;
-  margin: 0 20px;
-  width: 100px;
+  margin: 0 20px 0 12px;
+  min-width: 92px;
   border-right: 2px solid #ebebeb;
-  height: 100%;
+  padding: 13px 8px 11px;
 }
-.data-sum:after {
-  content: ' kr';
+.data-sum, .data-total, .data-title, .timestamp, .data-nr {
+  display: block;
+  font-weight: normal;
 }
 .data-title {
-  float: left;
-  height: 100%;
+  padding-top: 13px;
+}
+.data-total, .timestamp {
+    font-size: 14px;
+    color: #999;
+    margin-top: 3px
 }
 .data-nr {
-  float: right;
-  height: 100%;
-  font-style: normal;
-  margin-right: 20px;
+  position: absolute;
+  top: 13px; right: 20px;
   color: #999;
-  font-size: 16px;
+  font-style: normal;
 }
-.data-nr:before {
-  content: '#';
+.event .icon {
+  position: absolute;
+  top: 38px; right: 20px;
+  font-size: 24px;
+  top: 38px;
+  color: #ccc;
+  cursor: pointer;
 }
+.event .icon:hover {
+  color: #999;
+}
+.event .edit {
+  right: 45px
+}
+
+
+/* Let's use pseudo elements to save some bandwith */
+.data-sum:after, .data-total:after { content: ' kr'; }
+.data-nr:before    { content: '#'; }
 
 /* ===== App like text selection ===== */
 
@@ -604,7 +621,7 @@ body.site #view-site {
 
 
 h4 i { display: none; }
-.overview h4 .events-all,
+.book h4 .events-all,
 .in h4 .events-in,
 .out h4 .events-out,
 .salary h4 .events-salary { display: inline; font-style: normal;}
