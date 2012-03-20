@@ -52,7 +52,7 @@ class MyApp < Sinatra::Base
     logger.info "user: #{user}"
     logger.info "user.nil?: #{user.nil?}"
 
-    if user.nil?
+    if user == User::NoUser
       "false"
     else
       session[:logged_in] = true

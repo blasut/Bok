@@ -12,6 +12,7 @@ DataMapper::setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/db/#{db
 
 class User
   include DataMapper::Resource
+  NoUser = Class.new
 
   property :id, Serial
   property :email, String, :required => true, :unique_index => true
@@ -31,7 +32,7 @@ class User
     if user.save
       user
     else
-      nil
+      NoUser
     end
     #binding.pry
   end
