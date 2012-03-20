@@ -36,9 +36,9 @@ class PaymentTest < MiniTest::Unit::TestCase
     assert_equal false, p.saved?
   end
 
-  def test_that_payment_requires_vat
+  def test_that_payment_vat_is_optional
     p = @user.payments.create(@attr.merge(:vat => nil))
-    assert_equal false, p.saved?
+    assert_equal true, p.saved?
   end
 
   def test_that_payment_requires_date

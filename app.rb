@@ -35,8 +35,6 @@ class MyApp < Sinatra::Base
     u = User.get(session[:current_user_id])
     params["payment_type"] = PAYMENT_TYPES[params[:payment_type]] 
     p = u.payments.create(params)
-
-    p.errors.each { |e| puts e }
      
     if p.saved?
       "true"
